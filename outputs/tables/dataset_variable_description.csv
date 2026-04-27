@@ -1,0 +1,11 @@
+variable,group,description
+ID,Identifier,Unique customer ID; removed before modelling.
+LIMIT_BAL,Credit/account,Credit limit in NT dollars.
+SEX,Demographic,"Gender code: 1 = male, 2 = female."
+EDUCATION,Demographic,Education level; anomalous values merged into Others.
+MARRIAGE,Demographic,Marital status; anomalous value 0 merged into Others.
+AGE,Demographic,Customer age in years.
+"PAY_0, PAY_2-PAY_6",Payment status,Six-month repayment status / delay history.
+BILL_AMT1-BILL_AMT6,Bill amount,Six-month bill statement amounts.
+PAY_AMT1-PAY_AMT6,Payment amount,Six-month previous payment amounts.
+default_next_month,Target,"1 = default next month, 0 = non-default."

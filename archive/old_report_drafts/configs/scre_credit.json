@@ -1,0 +1,52 @@
+{
+  "project_direction": "SCRE-Credit: A Stability- and Cost-Regularized Explainable Ensemble Framework for Credit Risk Prediction",
+  "primary_dataset": "UCI Default of Credit Card Clients / Taiwan",
+  "external_validation_dataset": "FICO HELOC / Explainable Machine Learning Challenge",
+  "external_validation_policy": "Do not merge Taiwan and HELOC. Re-run the same reliability framework on HELOC because feature schemas differ.",
+  "cost_assumption": {
+    "false_negative_cost": 5,
+    "false_positive_cost": 1
+  },
+  "scre_credit_objective_weights": {
+    "pr_auc": 0.20,
+    "roc_auc": 0.15,
+    "recall": 0.15,
+    "calibration": 0.15,
+    "cost": 0.15,
+    "stability": 0.10,
+    "faithfulness": 0.10
+  },
+  "ensemble_weighting": "w_m = R_m / sum(R_all_models)",
+  "reliability_score_formula": "R_m = 0.20*PR_AUC_norm + 0.15*ROC_AUC_norm + 0.15*Recall_norm + 0.15*Calibration_norm + 0.15*Cost_norm + 0.10*Stability_norm + 0.10*Faithfulness_norm",
+  "three_way_decision": {
+    "low_risk": "P_final < t_low",
+    "manual_review": "t_low <= P_final <= t_high",
+    "high_risk": "P_final > t_high",
+    "selection": "t_low and t_high are selected on validation by expected policy cost under review-rate and review-capture recall constraints.",
+    "manual_review_cost": 0.5,
+    "max_review_rate": 0.45,
+    "min_review_capture_recall": 0.75
+  },
+  "taiwan_base_model_pool": [
+    "M1 Logistic Regression",
+    "M2 WOE / Scorecard Logistic Regression",
+    "M3 Random Forest",
+    "M4 XGBoost",
+    "M5 LightGBM",
+    "M6 CatBoost",
+    "M7 Monotonic XGBoost",
+    "M8 Monotonic LightGBM",
+    "M9 SMOTENC + XGBoost",
+    "M10 Class-weighted LightGBM"
+  ],
+  "heloc_reduced_model_pool": [
+    "M1 Logistic Regression",
+    "M2 WOE / Scorecard Logistic Regression",
+    "M3 XGBoost",
+    "M4 LightGBM",
+    "M5 Monotonic boosting",
+    "M6 SCRE-Credit ensemble"
+  ],
+  "planned_stability_seed_counts": [30, 50, 100],
+  "excluded_methods": ["conformal_prediction"]
+}

@@ -1,0 +1,25 @@
+original_column,cleaned_column,role,raw_dtype,cleaned_dtype,raw_missing_count,cleaned_missing_count,special_code_counts_raw,min_cleaned,max_cleaned,unique_values,description
+RiskPerformance,bad_flag,target,object,int32,0,0,{},,,"0=Good, 1=Bad",Original binary outcome: Good or Bad account performance.
+ExternalRiskEstimate,ExternalRiskEstimate,numeric_feature,float64,float64,10,10,"{""-7"": 0, ""-8"": 0, ""-9"": 0}",33.0,94.0,,External bureau risk estimate score.
+MSinceOldestTradeOpen,MSinceOldestTradeOpen,numeric_feature,float64,float64,239,239,"{""-7"": 0, ""-8"": 0, ""-9"": 0}",2.0,803.0,,Months since oldest trade was opened.
+MSinceMostRecentTradeOpen,MSinceMostRecentTradeOpen,numeric_feature,float64,float64,0,0,"{""-7"": 0, ""-8"": 0, ""-9"": 0}",0.0,383.0,,Months since most recent trade was opened.
+AverageMInFile,AverageMInFile,numeric_feature,float64,float64,0,0,"{""-7"": 0, ""-8"": 0, ""-9"": 0}",4.0,383.0,,Average months that trades have been in file.
+NumSatisfactoryTrades,NumSatisfactoryTrades,numeric_feature,float64,float64,0,0,"{""-7"": 0, ""-8"": 0, ""-9"": 0}",0.0,79.0,,Number of satisfactory trades.
+NumTrades60Ever2DerogPubRec,NumTrades60Ever2DerogPubRec,numeric_feature,float64,float64,0,0,"{""-7"": 0, ""-8"": 0, ""-9"": 0}",0.0,19.0,,Number of trades ever 60+ days delinquent or derogatory public records.
+NumTrades90Ever2DerogPubRec,NumTrades90Ever2DerogPubRec,numeric_feature,float64,float64,0,0,"{""-7"": 0, ""-8"": 0, ""-9"": 0}",0.0,19.0,,Number of trades ever 90+ days delinquent or derogatory public records.
+PercentTradesNeverDelq,PercentTradesNeverDelq,numeric_feature,float64,float64,0,0,"{""-7"": 0, ""-8"": 0, ""-9"": 0}",0.0,100.0,,Percentage of trades that were never delinquent.
+MSinceMostRecentDelq,MSinceMostRecentDelq,numeric_feature,float64,float64,4840,4840,"{""-7"": 0, ""-8"": 0, ""-9"": 0}",0.0,83.0,,Months since most recent delinquency.
+MaxDelq2PublicRecLast12M,MaxDelq2PublicRecLast12M,categorical_feature,int64,int64,0,0,"{""-7"": 0, ""-8"": 0, ""-9"": 0}",0.0,9.0,,Maximum delinquency or public record severity in the last 12 months.
+MaxDelqEver,MaxDelqEver,categorical_feature,int64,int64,0,0,"{""-7"": 0, ""-8"": 0, ""-9"": 0}",2.0,8.0,,Maximum delinquency severity ever observed.
+NumTotalTrades,NumTotalTrades,numeric_feature,float64,float64,0,0,"{""-7"": 0, ""-8"": 0, ""-9"": 0}",0.0,104.0,,Total number of trades.
+NumTradesOpeninLast12M,NumTradesOpeninLast12M,numeric_feature,float64,float64,0,0,"{""-7"": 0, ""-8"": 0, ""-9"": 0}",0.0,19.0,,Number of trades opened in the last 12 months.
+PercentInstallTrades,PercentInstallTrades,numeric_feature,float64,float64,0,0,"{""-7"": 0, ""-8"": 0, ""-9"": 0}",0.0,100.0,,Percentage of installment trades.
+MSinceMostRecentInqexcl7days,MSinceMostRecentInqexcl7days,numeric_feature,float64,float64,2331,2331,"{""-7"": 0, ""-8"": 0, ""-9"": 0}",0.0,24.0,,Months since most recent inquiry excluding the last 7 days.
+NumInqLast6M,NumInqLast6M,numeric_feature,float64,float64,0,0,"{""-7"": 0, ""-8"": 0, ""-9"": 0}",0.0,66.0,,Number of inquiries in the last 6 months.
+NumInqLast6Mexcl7days,NumInqLast6Mexcl7days,numeric_feature,float64,float64,0,0,"{""-7"": 0, ""-8"": 0, ""-9"": 0}",0.0,66.0,,Number of inquiries in the last 6 months excluding the last 7 days.
+NetFractionRevolvingBurden,NetFractionRevolvingBurden,numeric_feature,float64,float64,186,186,"{""-7"": 0, ""-8"": 0, ""-9"": 0}",0.0,232.0,,Net fraction of revolving credit burden.
+NetFractionInstallBurden,NetFractionInstallBurden,numeric_feature,float64,float64,3419,3419,"{""-7"": 0, ""-8"": 0, ""-9"": 0}",0.0,471.0,,Net fraction of installment credit burden.
+NumRevolvingTradesWBalance,NumRevolvingTradesWBalance,numeric_feature,float64,float64,156,156,"{""-7"": 0, ""-8"": 0, ""-9"": 0}",0.0,32.0,,Number of revolving trades with balance.
+NumInstallTradesWBalance,NumInstallTradesWBalance,numeric_feature,float64,float64,861,861,"{""-7"": 0, ""-8"": 0, ""-9"": 0}",1.0,23.0,,Number of installment trades with balance.
+NumBank2NatlTradesWHighUtilization,NumBank2NatlTradesWHighUtilization,numeric_feature,float64,float64,583,583,"{""-7"": 0, ""-8"": 0, ""-9"": 0}",0.0,18.0,,Number of bankcard or national trades with high utilization.
+PercentTradesWBalance,PercentTradesWBalance,numeric_feature,float64,float64,18,18,"{""-7"": 0, ""-8"": 0, ""-9"": 0}",0.0,100.0,,Percentage of trades with balance.

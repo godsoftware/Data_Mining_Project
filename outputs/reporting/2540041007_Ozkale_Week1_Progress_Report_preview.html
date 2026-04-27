@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ECE565 Week 1 Progress Report Preview</title>
+<style>
+body { font-family: Arial, sans-serif; line-height: 1.45; margin: 32px; color: #1f2933; }
+h1, h2 { margin-bottom: 0.25rem; }
+table { border-collapse: collapse; width: 100%; margin: 12px 0 24px; font-size: 13px; }
+th, td { border: 1px solid #b8c2cc; padding: 7px; vertical-align: top; }
+th { background: #eef2f7; text-align: left; }
+.note { background: #fff8e5; border-left: 4px solid #c98400; padding: 10px 12px; }
+</style>
+</head>
+<body>
+<h1>ECE 565 Weekly Progress Report</h1>
+<p><strong>Student:</strong> Resul Ozkale, 2540041007<br>
+<strong>Date:</strong> April 27, 2026<br>
+<strong>Project:</strong> SCRE-Credit: Stability- and Cost-Regularized Ensemble for Credit Risk</p>
+<p class="note">Scope change from proposal: German Credit / Option A is archived. Active scope is Taiwan default prediction with HELOC external validation. HELOC Optuna is still pending as a long-running job.</p>
+<h2>Evidence From Current Artifacts</h2>
+<table><thead><tr><th>Item</th><th>Result</th><th>Comment</th></tr></thead><tbody><tr><td>Taiwan data audit</td><td>30,000 rows, 40 model columns, default rate 22.12%</td><td>Missing values and duplicate full rows reported; negative bill amounts are retained and audited.</td></tr>
+<tr><td>HELOC data audit</td><td>9,871 rows, 31 model columns, bad-flag rate 52.03%</td><td>Special negative codes are documented through the cleaning-decisions table.</td></tr>
+<tr><td>Taiwan RF baseline test</td><td>Acc 0.818, F1 0.468, ROC-AUC 0.780, PR-AUC 0.560</td><td>Untuned baseline; test used only for final evaluation rows.</td></tr>
+<tr><td>Taiwan CatBoost test</td><td>Acc 0.818, F1 0.466, ROC-AUC 0.785, PR-AUC 0.565</td><td>Best current untuned boosting result by PR-AUC on Taiwan.</td></tr>
+<tr><td>SCRE-Credit Taiwan</td><td>t=0.50: Acc 0.815, F1 0.523, ROC-AUC 0.783, PR-AUC 0.565</td><td>Cost threshold 0.25 cuts FN=5/FP=1 expected cost from 3980 to 3338 (16.1% improvement).</td></tr>
+<tr><td>SCRE-Credit HELOC</td><td>t=0.50: Acc 0.732, F1 0.747, ROC-AUC 0.807, PR-AUC 0.813</td><td>External validation is promising, but the best cost threshold 0.10 uses very high recall and low specificity; this needs careful interpretation.</td></tr>
+<tr><td>Reproducibility check</td><td>pytest: 26 passed; environment versions exported.</td><td>LightGBM feature-name warning was fixed by preserving pandas output through sklearn pipelines.</td></tr></tbody></table>
+<h2>Literature And Current Results</h2>
+<table><thead><tr><th>Model / Paper</th><th>Method</th><th>Accuracy</th><th>F1</th><th>AUC</th><th>Other</th><th>Best?</th><th>Notes</th></tr></thead><tbody><tr><td>Alam et al. (2020)</td><td>GBDT + K-means SMOTE on Taiwan</td><td>~0.887</td><td>NR</td><td>NR</td><td>Reported high accuracy</td><td>No</td><td>Proposal benchmark; likely not directly comparable until split/CV protocol is matched.</td></tr>
+<tr><td>K-means SMOTE + BP NN (2021)</td><td>Class imbalance handling + neural net</td><td>NR</td><td>NR</td><td>0.929</td><td>AUC improved 0.765 to 0.929</td><td>No</td><td>Very strong AUC claim; must be checked for protocol differences before comparing.</td></tr>
+<tr><td>Interpretable DL + XAI (2023)</td><td>Deep model with XAI</td><td>0.835</td><td>NR</td><td>NR</td><td>Sensitivity 0.882, specificity 0.988</td><td>No</td><td>Included from proposal; current work is not yet claiming to exceed it.</td></tr>
+<tr><td>DNN empirical study (2025)</td><td>Deep neural network on Taiwan</td><td>0.818</td><td>0.482</td><td>0.770</td><td>G-mean 0.603</td><td>No</td><td>Closest to current Taiwan metrics; our SCRE cost/recall setting has higher F1 but lower accuracy at cost-optimal threshold.</td></tr>
+<tr><td>Lin &amp; Wang (2025)</td><td>100 XGBoost seeds + SHAP stability</td><td>0.795</td><td>NR</td><td>0.777</td><td>Kendall W ~0.98 all features</td><td>No</td><td>Most relevant new benchmark for planned SHAP stability work.</td></tr>
+<tr><td>MY Baseline Model</td><td>Random Forest, train-fitted preprocessing</td><td>0.818</td><td>0.468</td><td>0.780</td><td>PR-AUC 0.560</td><td>No</td><td>Honest baseline; no hyperparameter tuning.</td></tr>
+<tr><td>MY Proposed Model</td><td>SCRE-Credit ensemble + cost thresholding</td><td>0.815</td><td>0.523</td><td>0.783</td><td>PR-AUC 0.565; cost -16.1%</td><td>Partial</td><td>Promising on cost-sensitive decision policy, but not yet a final claim because full stability and ablation tests remain.</td></tr></tbody></table>
+<h2>Next Week Plan</h2>
+<ol><li>Run HELOC Optuna 50-trial LightGBM job with 5x3 repeated stratified CV. Deliverable: Updated best_params.csv / optuna_trials.csv with HELOC results and saved study joblib.</li><li>Run the full SHAP stability experiment with 50 seeds for the selected final model family. Deliverable: shap_stability_rankings.csv, stability summary plots, and a no-overclaim paragraph for the report.</li><li>Add SCRE-Credit ablation: without cost term, without calibration term, without stability/faithfulness proxy. Deliverable: Ablation table showing which term changes PR-AUC, recall, Brier, and expected cost.</li></ol>
+</body>
+</html>

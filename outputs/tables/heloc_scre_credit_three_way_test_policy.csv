@@ -1,0 +1,2 @@
+t_low,t_high,expected_policy_cost,low_count,manual_review_count,high_count,low_rate,manual_review_rate,high_rate,low_false_negative,high_false_positive,low_true_negative,high_true_positive,manual_review_default,manual_review_non_default,high_risk_precision,high_risk_recall,review_capture_recall,auto_decision_rate
+0.1,0.5,737.5,61,847,1067,0.030886075949367087,0.42886075949367086,0.540253164556962,6,284,55,783,239,608,0.7338331771321462,0.7616731517509727,0.9941634241245136,0.5711392405063291

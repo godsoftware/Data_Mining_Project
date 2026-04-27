@@ -1,0 +1,8 @@
+feature,top_k_count,top_k_rate
+PAY_0,10,1.0
+delay_count,10,1.0
+max_delay,10,1.0
+recent_delay,10,1.0
+utilization_proxy,7,0.7
+avg_delay,2,0.2
+LIMIT_BAL,1,0.1

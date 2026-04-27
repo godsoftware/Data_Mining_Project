@@ -1,0 +1,9 @@
+{
+  "rows": 30000,
+  "columns": 25,
+  "target_counts": {
+    "0": 23364,
+    "1": 6636
+  },
+  "target_default_rate": 0.2212
+}

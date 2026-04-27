@@ -1,0 +1,7 @@
+model,parameter,search_values
+xgboost,model__n_estimators,"[200, 300, 400, 600]"
+xgboost,model__max_depth,"[3, 4, 5, 6]"
+xgboost,model__learning_rate,Uniform 0.02-0.10
+xgboost,model__subsample,Uniform 0.75-1.00
+xgboost,model__colsample_bytree,Uniform 0.75-1.00
+xgboost,model__min_child_weight,"[1, 2, 3, 4, 5]"

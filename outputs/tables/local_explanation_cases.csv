@@ -1,0 +1,5 @@
+case_name,row_index,actual,predicted_at_threshold_015,predicted_probability
+correct_default_high_risk,27536,1,1,0.8836647272109985
+correct_non_default_low_risk,23078,0,0,0.02600296214222908
+false_negative_borderline,20656,1,0,0.1499646008014679
+borderline_near_threshold,2228,0,1,0.1500292420387268

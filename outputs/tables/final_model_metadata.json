@@ -1,0 +1,23 @@
+{
+  "selected_model": "xgboost_tuned_randomized_search",
+  "base_model_family": "xgboost",
+  "imbalance_strategy": "no_resampling",
+  "recommended_threshold": 0.15,
+  "recommended_threshold_expected_cost": 3294.0,
+  "final_model_path": "C:\\Users\\AKTS\\Desktop\\Resul\\Data_Mining_Project\\outputs\\models\\final_model.joblib",
+  "best_cv_average_precision": 0.5636237035732408,
+  "best_params": {
+    "model__colsample_bytree": 0.8981036422155106,
+    "model__learning_rate": 0.02371603301759982,
+    "model__max_depth": 5,
+    "model__min_child_weight": 5,
+    "model__n_estimators": 200,
+    "model__subsample": 0.7662628982463199
+  },
+  "selection_rule": "Compact RandomizedSearchCV improved ROC-AUC, Brier score, recall, and FN-weighted threshold cost. Final model selected by expected cost with FN cost=5 and FP cost=1, while keeping PR-AUC in the same literature band.",
+  "supporting_tables": [
+    "C:\\Users\\AKTS\\Desktop\\Resul\\Data_Mining_Project\\outputs\\tables\\hyperparameter_tuning_results.csv",
+    "C:\\Users\\AKTS\\Desktop\\Resul\\Data_Mining_Project\\outputs\\tables\\tuned_xgboost_test_metrics.csv",
+    "C:\\Users\\AKTS\\Desktop\\Resul\\Data_Mining_Project\\outputs\\tables\\tuned_xgboost_threshold_comparison.csv"
+  ]
+}

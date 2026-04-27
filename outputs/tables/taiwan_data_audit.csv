@@ -1,0 +1,27 @@
+check,status,value,notes
+raw_xls_read,pass,C:\Users\AKTS\Desktop\Resul\Data_Mining_Project\data\raw\taiwan_default\default_credit_card_clients.xls,Raw Taiwan workbook was read with a robust header strategy.
+header_problem_fixed,pass,header=1/header=0 fallback,UCI X1..Y style columns and target aliases are normalized.
+raw_shape,pass,30000 rows x 25 columns,Shape after dropping fully empty rows.
+cleaned_shape,pass,30000 rows x 25 columns,Cleaned interim dataset before feature engineering.
+column_names_normalized,pass,"ID, LIMIT_BAL, SEX, EDUCATION, MARRIAGE, AGE, PAY_0, PAY_2, PAY_3, PAY_4, PAY_5, PAY_6, BILL_AMT1, BILL_AMT2, BILL_AMT3, BILL_AMT4, BILL_AMT5, BILL_AMT6, PAY_AMT1, PAY_AMT2, PAY_AMT3, PAY_AMT4, PAY_AMT5, PAY_AMT6, default_next_month",Project uses descriptive column names and default_next_month target.
+id_model_exclusion_policy,pass,ID retained in interim; dropped in model_ready dataset,ID is kept for auditability but excluded before modelling.
+education_anomaly_mapping,pass,invalid_after_cleaning=[],"EDUCATION 0, 5, and 6 are mapped to 4 = Others."
+marriage_anomaly_mapping,pass,invalid_after_cleaning=[],MARRIAGE 0 is mapped to 3 = Others.
+missing_values,pass,0,Missing values are reported before modelling.
+duplicate_full_rows,pass,0,Full-row duplicates are reported and not dropped automatically.
+duplicate_rows_excluding_id,review,35,Duplicate customer profiles excluding ID are reported separately.
+target_distribution_non_default,pass,23364 (0.7788),Class 0 = non-default.
+target_distribution_default,pass,6636 (0.2212),Class 1 = default next month.
+negative_bill_amounts,review,"{""BILL_AMT1"": 590, ""BILL_AMT2"": 669, ""BILL_AMT3"": 655, ""BILL_AMT4"": 675, ""BILL_AMT5"": 655, ""BILL_AMT6"": 688}",Negative BILL_AMT values are plausible credit balances and are not dropped automatically.
+BILL_AMT1_negative_count,review,590,Reported for audit only; no automatic deletion.
+BILL_AMT1_negative_rate,review,0.019667,Share of rows with negative bill amount; values are preserved.
+BILL_AMT2_negative_count,review,669,Reported for audit only; no automatic deletion.
+BILL_AMT2_negative_rate,review,0.022300,Share of rows with negative bill amount; values are preserved.
+BILL_AMT3_negative_count,review,655,Reported for audit only; no automatic deletion.
+BILL_AMT3_negative_rate,review,0.021833,Share of rows with negative bill amount; values are preserved.
+BILL_AMT4_negative_count,review,675,Reported for audit only; no automatic deletion.
+BILL_AMT4_negative_rate,review,0.022500,Share of rows with negative bill amount; values are preserved.
+BILL_AMT5_negative_count,review,655,Reported for audit only; no automatic deletion.
+BILL_AMT5_negative_rate,review,0.021833,Share of rows with negative bill amount; values are preserved.
+BILL_AMT6_negative_count,review,688,Reported for audit only; no automatic deletion.
+BILL_AMT6_negative_rate,review,0.022933,Share of rows with negative bill amount; values are preserved.

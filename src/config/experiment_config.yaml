@@ -1,0 +1,57 @@
+project:
+  name: SCRE-Credit
+  title: "SCRE-Credit: A Stability- and Cost-Regularized Explainable Ensemble Framework for Credit Risk Prediction"
+  random_seed: 42
+
+random_seed: 42
+n_splits: 5
+n_repeats: 3
+optuna_trials_taiwan: 100
+optuna_trials_heloc: 50
+shap_stability_seeds: 50
+cost_scenarios:
+  - name: FN2_FP1
+    false_negative: 2
+    false_positive: 1
+  - name: FN5_FP1
+    false_negative: 5
+    false_positive: 1
+  - name: FN10_FP1
+    false_negative: 10
+    false_positive: 1
+
+splits:
+  train: 0.60
+  validation: 0.20
+  test: 0.20
+  strategy: "Stratified train/validation/test split. Test set is reserved for final evaluation only."
+  alternative: "80/20 train/test split with CV-based calibration remains allowed when no explicit validation set is required."
+
+datasets:
+  primary: taiwan_default
+  external_validation: heloc
+  merge_policy: "Do not merge Taiwan and HELOC; use HELOC for methodology robustness."
+
+costs:
+  false_negative: 5.0
+  false_positive: 1.0
+  manual_review: 0.5
+
+three_way_policy:
+  max_review_rate: 0.45
+  min_review_capture_recall: 0.75
+  threshold_grid_start: 0.05
+  threshold_grid_stop: 0.95
+  threshold_grid_step: 0.05
+
+reliability_weights:
+  pr_auc_norm: 0.20
+  roc_auc_norm: 0.15
+  recall_norm: 0.15
+  calibration_norm: 0.15
+  cost_norm: 0.15
+  stability_norm: 0.10
+  faithfulness_norm: 0.10
+
+stability:
+  planned_seed_counts: [30, 50, 100]

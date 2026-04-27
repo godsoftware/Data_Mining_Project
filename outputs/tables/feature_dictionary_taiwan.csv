@@ -1,0 +1,18 @@
+dataset,feature,feature_type,concept,formula,source_columns,uses_target,uses_dataset_level_statistics,fit_scope
+taiwan,delay_count,engineered_row_wise,payment_delay_frequency,count(PAY_0..PAY_6 > 0 after clipping negative pay-status codes to 0),"PAY_0, PAY_2, PAY_3, PAY_4, PAY_5, PAY_6",False,False,pre_split_row_wise_allowed
+taiwan,severe_delay_count,engineered_row_wise,severe_payment_delay_frequency,count(PAY_0..PAY_6 >= 2 after clipping negative pay-status codes to 0),"PAY_0, PAY_2, PAY_3, PAY_4, PAY_5, PAY_6",False,False,pre_split_row_wise_allowed
+taiwan,max_delay,engineered_row_wise,maximum_delay_severity,row-wise max(PAY_0..PAY_6 after clipping negative pay-status codes to 0),"PAY_0, PAY_2, PAY_3, PAY_4, PAY_5, PAY_6",False,False,pre_split_row_wise_allowed
+taiwan,avg_delay,engineered_row_wise,average_delay_severity,row-wise mean(PAY_0..PAY_6 after clipping negative pay-status codes to 0),"PAY_0, PAY_2, PAY_3, PAY_4, PAY_5, PAY_6",False,False,pre_split_row_wise_allowed
+taiwan,recent_delay,engineered_row_wise,recent_payment_delay,1 if PAY_0 > 0 or PAY_2 > 0 after clipping negative pay-status codes to 0 else 0,"PAY_0, PAY_2",False,False,pre_split_row_wise_allowed
+taiwan,total_bill_amt,engineered_row_wise,six_month_total_billed_amount,sum(BILL_AMT1..BILL_AMT6),"BILL_AMT1, BILL_AMT2, BILL_AMT3, BILL_AMT4, BILL_AMT5, BILL_AMT6",False,False,pre_split_row_wise_allowed
+taiwan,avg_bill_amt,engineered_row_wise,average_bill_amount,mean(BILL_AMT1..BILL_AMT6),"BILL_AMT1, BILL_AMT2, BILL_AMT3, BILL_AMT4, BILL_AMT5, BILL_AMT6",False,False,pre_split_row_wise_allowed
+taiwan,max_bill_amt,engineered_row_wise,maximum_bill_amount,max(BILL_AMT1..BILL_AMT6),"BILL_AMT1, BILL_AMT2, BILL_AMT3, BILL_AMT4, BILL_AMT5, BILL_AMT6",False,False,pre_split_row_wise_allowed
+taiwan,bill_trend,engineered_row_wise,recent_change_in_bill_balance,BILL_AMT1 - BILL_AMT6,"BILL_AMT1, BILL_AMT6",False,False,pre_split_row_wise_allowed
+taiwan,total_pay_amt,engineered_row_wise,six_month_total_payment_amount,sum(PAY_AMT1..PAY_AMT6),"PAY_AMT1, PAY_AMT2, PAY_AMT3, PAY_AMT4, PAY_AMT5, PAY_AMT6",False,False,pre_split_row_wise_allowed
+taiwan,avg_pay_amt,engineered_row_wise,average_payment_amount,mean(PAY_AMT1..PAY_AMT6),"PAY_AMT1, PAY_AMT2, PAY_AMT3, PAY_AMT4, PAY_AMT5, PAY_AMT6",False,False,pre_split_row_wise_allowed
+taiwan,max_pay_amt,engineered_row_wise,maximum_payment_amount,max(PAY_AMT1..PAY_AMT6),"PAY_AMT1, PAY_AMT2, PAY_AMT3, PAY_AMT4, PAY_AMT5, PAY_AMT6",False,False,pre_split_row_wise_allowed
+taiwan,payment_to_bill_ratio,engineered_row_wise,repayment_capacity_relative_to_balance,total_pay_amt / (abs(total_bill_amt) + 1),"total_pay_amt, total_bill_amt",False,False,pre_split_row_wise_allowed
+taiwan,utilization_proxy,engineered_row_wise,credit_limit_utilization_proxy,avg_bill_amt / (LIMIT_BAL + 1),"avg_bill_amt, LIMIT_BAL",False,False,pre_split_row_wise_allowed
+taiwan,recent_payment_intensity,engineered_row_wise,recent_repayment_intensity,(PAY_AMT1 + PAY_AMT2) / (abs(BILL_AMT1) + abs(BILL_AMT2) + 1),"PAY_AMT1, PAY_AMT2, BILL_AMT1, BILL_AMT2",False,False,pre_split_row_wise_allowed
+taiwan,bill_volatility,engineered_row_wise,bill_balance_variability,row-wise population std(BILL_AMT1..BILL_AMT6),"BILL_AMT1, BILL_AMT2, BILL_AMT3, BILL_AMT4, BILL_AMT5, BILL_AMT6",False,False,pre_split_row_wise_allowed
+taiwan,payment_volatility,engineered_row_wise,payment_amount_variability,row-wise population std(PAY_AMT1..PAY_AMT6),"PAY_AMT1, PAY_AMT2, PAY_AMT3, PAY_AMT4, PAY_AMT5, PAY_AMT6",False,False,pre_split_row_wise_allowed

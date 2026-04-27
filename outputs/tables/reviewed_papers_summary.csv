@@ -1,0 +1,5 @@
+paper,scope,main_finding,relevance_to_project
+Yeh and Lien (2009),UCI Taiwan default dataset; compared six data-mining methods.,Probability quality matters more than only hard classification.,Supports calibration/probability focus.
+"Jin, Wu, and Zhao (2022)",SMOTE-XGBoost for UCI credit-card defaulters.,SMOTE-XGBoost can improve recall/AUC in imbalanced default prediction.,"Motivates testing resampling, though our SMOTENC did not win."
+Bhandary and Ghosh (2025),Compared statistical and machine-learning models on the UCI dataset.,Modern ML models achieved about 0.77 AUC and around 81.8% top accuracy.,Our XGBoost AUC 0.780 is in the expected literature band.
+Lin and Wang (2025),SHAP stability case study using 100 XGBoost models.,Top SHAP drivers tend to be more stable than middle-ranked features.,Directly motivates our 10-seed SHAP stability analysis.
