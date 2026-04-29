@@ -1,0 +1,29 @@
+dataset,split,metric,metric_direction,winner,winner_raw_model,n_winners,winner_value,threshold,calibration_type,cost_scenario,valid_for_model_selection,interpretation
+heloc,test,expected_cost,lower_is_better,Scorecard / SCRE-Optimized,woe_scorecard_logistic_regression / SCRE-Optimized,2,892.0,0.16,sigmoid,B_FN5_FP1,False,"Test winner is descriptive final evidence only, not a selection rule."
+heloc,test,roc_auc,higher_is_better,CatBoost,catboost,1,0.8040936153078122,0.14,isotonic,B_FN5_FP1,False,"Test winner is descriptive final evidence only, not a selection rule."
+heloc,test,pr_auc,higher_is_better,CatBoost,catboost,1,0.8115982528808503,0.14,isotonic,B_FN5_FP1,False,"Test winner is descriptive final evidence only, not a selection rule."
+heloc,test,recall,higher_is_better,LightGBM,lightgbm,1,0.9834630350194552,0.19,sigmoid,B_FN5_FP1,False,"Test winner is descriptive final evidence only, not a selection rule."
+heloc,test,f1,higher_is_better,SCRE-Static,SCRE-Credit,1,0.7369213398569816,0.17,weighted_sum_plus_isotonic,B_FN5_FP1,False,"Test winner is descriptive final evidence only, not a selection rule."
+heloc,test,brier_score,lower_is_better,CatBoost,catboost,1,0.1802440277917598,0.14,isotonic,B_FN5_FP1,False,"Test winner is descriptive final evidence only, not a selection rule."
+heloc,test,ece,lower_is_better,CatBoost,catboost,1,0.0107832103485953,0.14,isotonic,B_FN5_FP1,False,"Test winner is descriptive final evidence only, not a selection rule."
+heloc,validation,expected_cost,lower_is_better,SCRE-Optimized,SCRE-Optimized,1,855.0,0.11,weighted_sum_plus_isotonic,B_FN5_FP1,True,Validation winner may be used for model selection.
+heloc,validation,roc_auc,higher_is_better,SCRE-Optimized,SCRE-Optimized,1,0.8125140735515939,0.11,weighted_sum_plus_isotonic,B_FN5_FP1,True,Validation winner may be used for model selection.
+heloc,validation,pr_auc,higher_is_better,CatBoost,catboost,1,0.8013113512560703,0.14,isotonic,B_FN5_FP1,True,Validation winner may be used for model selection.
+heloc,validation,recall,higher_is_better,Scorecard,woe_scorecard_logistic_regression,1,0.9863680623174296,0.16,sigmoid,B_FN5_FP1,True,Validation winner may be used for model selection.
+heloc,validation,f1,higher_is_better,SCRE-Static,SCRE-Credit,1,0.7435114503816794,0.17,weighted_sum_plus_isotonic,B_FN5_FP1,True,Validation winner may be used for model selection.
+heloc,validation,brier_score,lower_is_better,SCRE-Static,SCRE-Credit,1,0.1754359558208565,0.17,weighted_sum_plus_isotonic,B_FN5_FP1,True,Validation winner may be used for model selection.
+heloc,validation,ece,lower_is_better,SCRE-Static / SCRE-Pareto / SCRE-Optimized,SCRE-Credit / SCRE-Pareto / SCRE-Optimized,3,2.009959237210817e-17,0.17,weighted_sum_plus_isotonic,B_FN5_FP1,True,Validation winner may be used for model selection.
+taiwan,test,expected_cost,lower_is_better,CatBoost,catboost,1,3247.0,0.15,isotonic,B_FN5_FP1,False,"Test winner is descriptive final evidence only, not a selection rule."
+taiwan,test,roc_auc,higher_is_better,CatBoost,catboost,1,0.7853434511554537,0.15,isotonic,B_FN5_FP1,False,"Test winner is descriptive final evidence only, not a selection rule."
+taiwan,test,pr_auc,higher_is_better,CatBoost,catboost,1,0.5639167825429635,0.15,isotonic,B_FN5_FP1,False,"Test winner is descriptive final evidence only, not a selection rule."
+taiwan,test,recall,higher_is_better,XGBoost,xgboost,1,0.8364732479276563,0.14,isotonic,B_FN5_FP1,False,"Test winner is descriptive final evidence only, not a selection rule."
+taiwan,test,f1,higher_is_better,LightGBM,lightgbm,1,0.4994954591321897,0.17,isotonic,B_FN5_FP1,False,"Test winner is descriptive final evidence only, not a selection rule."
+taiwan,test,brier_score,lower_is_better,CatBoost,catboost,1,0.133690712785661,0.15,isotonic,B_FN5_FP1,False,"Test winner is descriptive final evidence only, not a selection rule."
+taiwan,test,ece,lower_is_better,CatBoost,catboost,1,0.0077638887959482,0.15,isotonic,B_FN5_FP1,False,"Test winner is descriptive final evidence only, not a selection rule."
+taiwan,validation,expected_cost,lower_is_better,SCRE-Optimized,SCRE-Optimized,1,3112.0,0.12,weighted_sum_plus_isotonic,B_FN5_FP1,True,Validation winner may be used for model selection.
+taiwan,validation,roc_auc,higher_is_better,SCRE-Pareto,SCRE-Pareto,1,0.7917500863963661,0.13,weighted_sum_plus_isotonic,B_FN5_FP1,True,Validation winner may be used for model selection.
+taiwan,validation,pr_auc,higher_is_better,CatBoost,catboost,1,0.5600762638181987,0.15,isotonic,B_FN5_FP1,True,Validation winner may be used for model selection.
+taiwan,validation,recall,higher_is_better,XGBoost,xgboost,1,0.8425018839487566,0.14,isotonic,B_FN5_FP1,True,Validation winner may be used for model selection.
+taiwan,validation,f1,higher_is_better,LightGBM,lightgbm,1,0.5118411000763942,0.17,isotonic,B_FN5_FP1,True,Validation winner may be used for model selection.
+taiwan,validation,brier_score,lower_is_better,SCRE-Static,SCRE-Credit,1,0.1316487089023069,0.16,weighted_sum_plus_isotonic,B_FN5_FP1,True,Validation winner may be used for model selection.
+taiwan,validation,ece,lower_is_better,SCRE-Static / SCRE-Pareto / SCRE-Optimized,SCRE-Credit / SCRE-Pareto / SCRE-Optimized,3,6.448545401364451e-18,0.16,weighted_sum_plus_isotonic,B_FN5_FP1,True,Validation winner may be used for model selection.

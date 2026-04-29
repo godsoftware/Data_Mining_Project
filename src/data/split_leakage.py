@@ -100,6 +100,82 @@ def build_split_summary(
     return pd.DataFrame(rows)
 
 
+def build_duplicate_split_overlap_audit(
+    dataset: str,
+    df: pd.DataFrame,
+    target_column: str,
+    train_size: float = TRAIN_SIZE,
+    validation_size: float = VALIDATION_SIZE,
+    test_size: float = TEST_SIZE,
+    random_state: int = RANDOM_SEED,
+) -> pd.DataFrame:
+    """Report exact feature-profile overlaps across train/validation/test splits."""
+
+    split = stratified_train_validation_test_split(
+        df,
+        target_column=target_column,
+        train_size=train_size,
+        validation_size=validation_size,
+        test_size=test_size,
+        random_state=random_state,
+    )
+    split_frames = {
+        "train": split.train,
+        "validation": split.validation,
+        "test": split.test,
+    }
+    feature_columns = [column for column in df.columns if column != target_column]
+
+    def grouped_counts(frame: pd.DataFrame) -> pd.DataFrame:
+        hashed = pd.DataFrame(
+            {
+                "feature_hash": pd.util.hash_pandas_object(frame[feature_columns], index=False),
+                "target": frame[target_column].astype(int).to_numpy(),
+            }
+        )
+        counts = pd.crosstab(hashed["feature_hash"], hashed["target"])
+        for label in [0, 1]:
+            if label not in counts.columns:
+                counts[label] = 0
+        counts = counts[[0, 1]].rename(columns={0: "target_0_count", 1: "target_1_count"})
+        counts["total_count"] = counts["target_0_count"] + counts["target_1_count"]
+        return counts
+
+    grouped = {name: grouped_counts(frame) for name, frame in split_frames.items()}
+    pairs = [("train", "validation"), ("train", "test"), ("validation", "test")]
+    rows = []
+    for left_name, right_name in pairs:
+        left = grouped[left_name].add_suffix("_left")
+        right = grouped[right_name].add_suffix("_right")
+        overlap = left.join(right, how="inner")
+        duplicate_pair_count = (
+            overlap["total_count_left"] * overlap["total_count_right"]
+        ).sum() if not overlap.empty else 0
+        same_target_pairs = (
+            overlap["target_0_count_left"] * overlap["target_0_count_right"]
+            + overlap["target_1_count_left"] * overlap["target_1_count_right"]
+        ).sum() if not overlap.empty else 0
+        different_target_pairs = duplicate_pair_count - same_target_pairs
+        rows.append(
+            {
+                "dataset": dataset,
+                "split_left": left_name,
+                "split_right": right_name,
+                "feature_columns_used": len(feature_columns),
+                "overlap_feature_keys": int(len(overlap)),
+                "duplicate_pair_count": int(duplicate_pair_count),
+                "same_target_pair_count": int(same_target_pairs),
+                "different_target_pair_count": int(different_target_pairs),
+                "policy": "audit_only_no_group_identifier_available",
+                "risk_note": (
+                    "Exact feature-profile overlap is reported for transparency. "
+                    "No customer-stable group identifier is available after ID exclusion."
+                ),
+            }
+        )
+    return pd.DataFrame(rows)
+
+
 def build_leakage_checklist() -> pd.DataFrame:
     """Return the project leakage-control checklist."""
 
@@ -163,6 +239,11 @@ def build_leakage_checklist() -> pd.DataFrame:
             "check": "dataset_level_statistics_policy",
             "status": "pass",
             "evidence": "Any future dataset-level statistic must be implemented as a train-fitted transformer, not precomputed on full data.",
+        },
+        {
+            "check": "duplicate_feature_profile_overlap_audit",
+            "status": "pass",
+            "evidence": "Exact feature-profile overlaps across splits are reported in duplicate_split_overlap_audit.csv.",
         },
     ]
     return pd.DataFrame(rows)

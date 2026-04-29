@@ -21,31 +21,46 @@ from experiment_registry import finish_run, start_run
 REQUIRED_PACKAGES = [
     "pandas",
     "numpy",
-    "sklearn",
-    "imblearn",
+    "scipy",
+    "scikit-learn",
+    "imbalanced-learn",
     "xgboost",
     "lightgbm",
     "catboost",
     "optuna",
     "shap",
     "lime",
-    "yaml",
+    "matplotlib",
+    "joblib",
+    "pyyaml",
     "statsmodels",
     "pytest",
 ]
 
 
+PACKAGE_IMPORT_NAMES = {
+    "scikit-learn": "sklearn",
+    "imbalanced-learn": "imblearn",
+    "pyyaml": "yaml",
+}
+
+
+def import_name(package: str) -> str:
+    """Return the module import name for a distribution package."""
+
+    return PACKAGE_IMPORT_NAMES.get(package, package)
+
+
 def package_version(package: str) -> str:
     """Return a package version from the imported module or package metadata."""
 
-    module = importlib.import_module(package)
+    module = importlib.import_module(import_name(package))
     version = getattr(module, "__version__", None)
     if version:
         return str(version)
 
-    metadata_name = {"sklearn": "scikit-learn", "yaml": "PyYAML"}.get(package, package)
     try:
-        return metadata.version(metadata_name)
+        return metadata.version(package)
     except metadata.PackageNotFoundError:
         return "unknown"
 
@@ -58,7 +73,7 @@ def main() -> None:
         print(f"Python: {sys.version}")
         for package in REQUIRED_PACKAGES:
             version = package_version(package)
-            rows.append({"package": package, "version": version, "import_name": package})
+            rows.append({"package": package, "version": version, "import_name": import_name(package)})
             print(f"{package}: {version}")
         output_path = TABLES_DIR / "environment_versions.csv"
         pd.DataFrame(rows).to_csv(output_path, index=False)

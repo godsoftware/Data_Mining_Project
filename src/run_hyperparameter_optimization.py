@@ -390,6 +390,54 @@ def plot_param_importance(studies: dict[str, optuna.Study], output_path: Path) -
     plt.close(fig)
 
 
+def write_optuna_run_status(search_results: pd.DataFrame, best_params: pd.DataFrame) -> Path:
+    """Write a compact completion/audit table for the latest Optuna artifacts."""
+
+    rows = []
+    minimum_trials = {"taiwan": OPTUNA_TRIALS_TAIWAN, "heloc": OPTUNA_TRIALS_HELOC}
+    for dataset, best_row in best_params.sort_values("dataset").groupby("dataset").first().iterrows():
+        dataset_trials = search_results.loc[search_results["dataset"] == dataset].copy()
+        completed = dataset_trials.loc[dataset_trials["state"] == "COMPLETE"]
+        requested_trials = int(best_row.get("n_trials", len(completed)))
+        completed_trials = int(len(completed))
+        model_types = sorted(
+            str(value)
+            for value in completed.get("param_model_type", pd.Series(dtype=object)).dropna().unique()
+        )
+        test_set_value = best_row["test_set_used"]
+        test_set_used = (
+            str(test_set_value).strip().lower() == "true"
+            if isinstance(test_set_value, str)
+            else bool(test_set_value)
+        )
+        rows.append(
+            {
+                "dataset": dataset,
+                "status": "completed" if completed_trials >= requested_trials else "partial",
+                "requested_trials": requested_trials,
+                "minimum_prompt_trials": int(minimum_trials.get(dataset, requested_trials)),
+                "completed_trials": completed_trials,
+                "completed_trials_in_current_artifacts": completed_trials,
+                "cv_n_splits": int(best_row["cv_n_splits"]),
+                "cv_n_repeats": int(best_row["cv_n_repeats"]),
+                "cv_total_folds": int(best_row["cv_total_folds"]),
+                "objective_primary": best_row["objective_primary"],
+                "model_search_space_completed": ", ".join(model_types),
+                "best_model_type": best_row["best_model_type"],
+                "best_trial_number": int(best_row["best_trial_number"]),
+                "best_cv_pr_auc": float(best_row["best_cv_pr_auc"]),
+                "validation_pr_auc": float(best_row["validation_pr_auc"]),
+                "test_set_used": test_set_used,
+                "study_path": best_row["study_path"],
+                "model_path": best_row["model_path"],
+            }
+        )
+
+    output_path = TABLES_DIR / "optuna_run_status.csv"
+    pd.DataFrame(rows).to_csv(output_path, index=False)
+    return output_path
+
+
 def run_one_dataset(
     dataset: str,
     n_trials: int,
@@ -529,6 +577,7 @@ def main() -> None:
         search_results.to_csv(TABLES_DIR / "hyperparameter_search_results.csv", index=False)
         search_results.to_csv(TABLES_DIR / "optuna_trials.csv", index=False)
         best_params.to_csv(TABLES_DIR / "best_params.csv", index=False)
+        optuna_status_path = write_optuna_run_status(search_results, best_params)
         plot_optimization_history(studies, FIGURES_DIR / "optuna_optimization_history.png")
         plot_param_importance(studies, FIGURES_DIR / "optuna_param_importance.png")
 
@@ -543,6 +592,7 @@ def main() -> None:
                 "hyperparameter_search_results": TABLES_DIR / "hyperparameter_search_results.csv",
                 "optuna_trials": TABLES_DIR / "optuna_trials.csv",
                 "best_params": TABLES_DIR / "best_params.csv",
+                "optuna_run_status": optuna_status_path,
                 "optimization_history": FIGURES_DIR / "optuna_optimization_history.png",
                 "param_importance": FIGURES_DIR / "optuna_param_importance.png",
             },

@@ -12,7 +12,11 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT))
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
-from data.split_leakage import build_leakage_checklist, build_split_summary
+from data.split_leakage import (
+    build_duplicate_split_overlap_audit,
+    build_leakage_checklist,
+    build_split_summary,
+)
 from data_preprocessing import TARGET_COLUMN
 from experiment_registry import finish_run, start_run
 from heloc_preprocessing import HELOC_TARGET
@@ -31,14 +35,23 @@ def main() -> None:
 
         taiwan_summary = build_split_summary("taiwan", taiwan, TARGET_COLUMN)
         heloc_summary = build_split_summary("heloc", heloc, HELOC_TARGET)
+        duplicate_overlap = pd.concat(
+            [
+                build_duplicate_split_overlap_audit("taiwan", taiwan, TARGET_COLUMN),
+                build_duplicate_split_overlap_audit("heloc", heloc, HELOC_TARGET),
+            ],
+            ignore_index=True,
+        )
         leakage = build_leakage_checklist()
 
         taiwan_summary.to_csv(TABLES_DIR / "split_summary_taiwan.csv", index=False)
         heloc_summary.to_csv(TABLES_DIR / "split_summary_heloc.csv", index=False)
+        duplicate_overlap.to_csv(TABLES_DIR / "duplicate_split_overlap_audit.csv", index=False)
         leakage.to_csv(TABLES_DIR / "leakage_checklist.csv", index=False)
 
         print(taiwan_summary.to_string(index=False))
         print(heloc_summary.to_string(index=False))
+        print(duplicate_overlap.to_string(index=False))
         print(leakage.to_string(index=False))
 
         finish_run(
@@ -46,12 +59,14 @@ def main() -> None:
             metrics={
                 "taiwan_train_rows": int(taiwan_summary.loc[taiwan_summary["split"] == "train", "rows"].iloc[0]),
                 "heloc_train_rows": int(heloc_summary.loc[heloc_summary["split"] == "train", "rows"].iloc[0]),
+                "duplicate_overlap_rows": int(len(duplicate_overlap)),
                 "leakage_checks": int(len(leakage)),
                 "failed_leakage_checks": int((leakage["status"] != "pass").sum()),
             },
             artifacts={
                 "split_summary_taiwan": TABLES_DIR / "split_summary_taiwan.csv",
                 "split_summary_heloc": TABLES_DIR / "split_summary_heloc.csv",
+                "duplicate_split_overlap_audit": TABLES_DIR / "duplicate_split_overlap_audit.csv",
                 "leakage_checklist": TABLES_DIR / "leakage_checklist.csv",
             },
         )

@@ -30,3 +30,25 @@ def test_leakage_checklist_all_pass():
     checklist = pd.read_csv(TABLES_DIR / "leakage_checklist.csv")
     assert len(checklist) >= 10
     assert set(checklist["status"]) == {"pass"}
+
+
+def test_duplicate_split_overlap_audit_exists_for_both_datasets():
+    audit = pd.read_csv(TABLES_DIR / "duplicate_split_overlap_audit.csv")
+    required = {
+        "dataset",
+        "split_left",
+        "split_right",
+        "overlap_feature_keys",
+        "duplicate_pair_count",
+        "same_target_pair_count",
+        "different_target_pair_count",
+        "policy",
+    }
+    assert required.issubset(audit.columns)
+    assert set(audit["dataset"]) == {"taiwan", "heloc"}
+    assert set(audit["split_left"] + "-" + audit["split_right"]) == {
+        "train-validation",
+        "train-test",
+        "validation-test",
+    }
+    assert audit["duplicate_pair_count"].ge(0).all()

@@ -1,0 +1,2 @@
+dataset,model,model_path,explainer_type,tree_explainer_used,sample_size,background_size,local_case_count,lime_samples,fallback_note
+taiwan,lightgbm,C:\Users\AKTS\Desktop\Resul\Data_Mining_Project\outputs\models\calibrated\taiwan\lightgbm_uncalibrated.joblib,tree,True,500,200,5,1000,TreeExplainer succeeded.

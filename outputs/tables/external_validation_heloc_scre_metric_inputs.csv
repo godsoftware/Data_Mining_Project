@@ -1,0 +1,6 @@
+model,pr_auc,roc_auc,recall,calibration_error,expected_cost,stability_score,faithfulness_score,stability_score_source,faithfulness_score_source
+logistic_regression,0.7968101237921206,0.8012290130571713,0.9610516066212269,0.018494620220428824,904.0,1.0,1.0,neutral_equal_weight_external_validation,neutral_equal_weight_external_validation
+scorecard_baseline,0.7951633829936194,0.8030535622665332,0.9805258033106135,0.020796981061243554,876.0,1.0,1.0,neutral_equal_weight_external_validation,neutral_equal_weight_external_validation
+xgboost,0.7972930944304489,0.8006974312362413,0.9591041869522883,0.021453092751598127,904.0,1.0,1.0,neutral_equal_weight_external_validation,neutral_equal_weight_external_validation
+lightgbm,0.7831491768575647,0.7916996120583732,0.9814995131450828,0.02586281608767794,918.0,1.0,1.0,neutral_equal_weight_external_validation,neutral_equal_weight_external_validation
+monotonic_boosting,0.7905511322637966,0.7943708878238973,0.9698149951314509,0.01953003907302502,915.0,1.0,1.0,neutral_equal_weight_external_validation,neutral_equal_weight_external_validation

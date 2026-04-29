@@ -1,0 +1,25 @@
+metric,aliases,direction,metric_category,use_for_winner_selection,threshold_dependent,cost_scenario_dependent,requires_tradeoff_review,tradeoff_flag,standardization_note,registry_version,created_local
+accuracy,,higher_is_better,classification,False,True,False,False,,Accuracy is reported but must not be used alone for winner selection under class imbalance.,2026-04-29_final_metric_standard_v1,2026-04-29 14:51:51
+precision,,higher_is_better,classification,True,True,False,True,review_recall_precision_tradeoff,Use with recall; low precision at high recall must be flagged.,2026-04-29_final_metric_standard_v1,2026-04-29 14:51:51
+recall,,higher_is_better,classification,True,True,False,True,review_recall_precision_tradeoff,"Recall is important for default capture, but report precision collapse if present.",2026-04-29_final_metric_standard_v1,2026-04-29 14:51:51
+f1,,higher_is_better,classification,True,True,False,False,,Balances precision and recall at a selected threshold.,2026-04-29_final_metric_standard_v1,2026-04-29 14:51:51
+specificity,true_negative_rate,higher_is_better,classification,True,True,False,False,,,2026-04-29_final_metric_standard_v1,2026-04-29 14:51:51
+roc_auc,,higher_is_better,ranking,True,False,False,False,,Threshold independent; evaluate separately from threshold/cost tables.,2026-04-29_final_metric_standard_v1,2026-04-29 14:51:51
+pr_auc,,higher_is_better,ranking,True,False,False,False,,Primary ranking metric for imbalanced default prediction.,2026-04-29_final_metric_standard_v1,2026-04-29 14:51:51
+gmean,g_mean,higher_is_better,classification,True,True,False,False,,Geometric mean of recall and specificity.,2026-04-29_final_metric_standard_v1,2026-04-29 14:51:51
+shap_stability,,higher_is_better,explainability_stability,True,False,False,False,,Covers rank stability summaries such as Kendall W / rank correlation where normalized as stability.,2026-04-29_final_metric_standard_v1,2026-04-29 14:51:51
+top5_overlap,top5_overlap_rate|top5_overlap_count,higher_is_better,explainability_stability,True,False,False,False,,,2026-04-29_final_metric_standard_v1,2026-04-29 14:51:51
+top10_overlap,top10_overlap_rate|top10_overlap_count,higher_is_better,explainability_stability,True,False,False,False,,,2026-04-29_final_metric_standard_v1,2026-04-29 14:51:51
+faithfulness_score,,higher_is_better,explainability_faithfulness,True,False,False,False,,"Use only as model behavior sanity-check score, not causal proof.",2026-04-29_final_metric_standard_v1,2026-04-29 14:51:51
+manual_review_captured_defaults,manual_review_default|captured_defaults|review_capture_recall,higher_is_better,operations_manual_review,True,True,True,False,,,2026-04-29_final_metric_standard_v1,2026-04-29 14:51:51
+auto_decision_precision,,higher_is_better,operations_manual_review,True,True,True,False,,"Precision of automatically approved/rejected bands, when available.",2026-04-29_final_metric_standard_v1,2026-04-29 14:51:51
+brier,brier_score,lower_is_better,calibration,True,False,False,False,,Probability reliability metric.,2026-04-29_final_metric_standard_v1,2026-04-29 14:51:51
+ece,expected_calibration_error,lower_is_better,calibration,True,False,False,False,,,2026-04-29_final_metric_standard_v1,2026-04-29 14:51:51
+expected_cost,,lower_is_better,operations_cost,True,True,True,False,,Only valid for the stated FN/FP cost scenario.,2026-04-29_final_metric_standard_v1,2026-04-29 14:51:51
+fn,false_negative,lower_is_better,confusion_matrix,True,True,True,False,,,2026-04-29_final_metric_standard_v1,2026-04-29 14:51:51
+fp,false_positive,lower_is_better,confusion_matrix,True,True,True,False,,,2026-04-29_final_metric_standard_v1,2026-04-29 14:51:51
+fnr,false_negative_rate,lower_is_better,classification,True,True,False,False,,,2026-04-29_final_metric_standard_v1,2026-04-29 14:51:51
+fpr,false_positive_rate,lower_is_better,classification,True,True,False,False,,,2026-04-29_final_metric_standard_v1,2026-04-29 14:51:51
+calibration_error,brier_score|ece,lower_is_better,calibration,True,False,False,False,,SCRE component uses lower calibration error as better.,2026-04-29_final_metric_standard_v1,2026-04-29 14:51:51
+manual_review_rate,,lower_is_better,operations_manual_review,True,True,True,True,lower_only_if_automation_is_primary_goal,Lower is better only when automation rate is the operating objective; otherwise inspect captured defaults and remaining cost.,2026-04-29_final_metric_standard_v1,2026-04-29 14:51:51
+remaining_cost,,lower_is_better,operations_manual_review,True,True,True,False,,Cost remaining after manual review policy.,2026-04-29_final_metric_standard_v1,2026-04-29 14:51:51

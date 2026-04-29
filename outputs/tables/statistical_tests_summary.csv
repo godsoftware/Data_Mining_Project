@@ -1,0 +1,13 @@
+dataset,baseline_model,candidate_model,n_metrics,n_significant_0_05,baseline_directional_wins,candidate_directional_wins,significant_baseline_wins,significant_candidate_wins,expected_cost_winner,expected_cost_difference_candidate_minus_baseline,expected_cost_p_value,recommendation
+taiwan,Best CatBoost,Old SCRE-Credit,7,5,6,1,5,0,Best CatBoost,123.0,0.014,"Under FN=5, FP=1, Best CatBoost has lower observed expected cost. Use metric-level rows for significance and tradeoff details."
+taiwan,Best CatBoost,SCRE-Pareto,7,1,5,2,1,0,Best CatBoost,60.0,0.152,"Under FN=5, FP=1, Best CatBoost has lower observed expected cost. Use metric-level rows for significance and tradeoff details."
+taiwan,Best CatBoost,SCRE-Optimized,7,1,5,2,1,0,Best CatBoost,65.0,0.126,"Under FN=5, FP=1, Best CatBoost has lower observed expected cost. Use metric-level rows for significance and tradeoff details."
+taiwan,Best XGBoost,SCRE-Pareto,7,2,3,4,1,1,Best XGBoost,24.0,0.622,"Under FN=5, FP=1, Best XGBoost has lower observed expected cost. Use metric-level rows for significance and tradeoff details."
+taiwan,Best Scorecard,SCRE-Pareto,7,4,1,6,0,4,SCRE-Pareto,-88.0,0.166,"Under FN=5, FP=1, SCRE-Pareto has lower observed expected cost. Use metric-level rows for significance and tradeoff details."
+taiwan,Best CatBoost,Best Scorecard,7,5,6,1,5,0,Best CatBoost,148.0,0.006,"Under FN=5, FP=1, Best CatBoost has lower observed expected cost. Use metric-level rows for significance and tradeoff details."
+taiwan,Best CatBoost,Best Monotonic model,7,2,7,0,2,0,Best CatBoost,33.0,0.456,"Under FN=5, FP=1, Best CatBoost has lower observed expected cost. Use metric-level rows for significance and tradeoff details."
+heloc,Best CatBoost,Old SCRE-Credit,7,3,5,2,2,1,Old SCRE-Credit,-3.0,0.918,"Under FN=5, FP=1, Old SCRE-Credit has lower observed expected cost. Use metric-level rows for significance and tradeoff details."
+heloc,Best CatBoost,SCRE-Pareto,7,2,4,3,1,1,Best CatBoost,6.0,0.76,"Under FN=5, FP=1, Best CatBoost has lower observed expected cost. Use metric-level rows for significance and tradeoff details."
+heloc,Best CatBoost,SCRE-Optimized,7,2,4,3,2,0,Best CatBoost,2.0,0.96,"Under FN=5, FP=1, Best CatBoost has lower observed expected cost. Use metric-level rows for significance and tradeoff details."
+heloc,Best Scorecard,SCRE-Pareto,7,2,3,4,1,1,Best Scorecard,12.0,0.574,"Under FN=5, FP=1, Best Scorecard has lower observed expected cost. Use metric-level rows for significance and tradeoff details."
+heloc,Best Scorecard,SCRE-Optimized,7,1,4,3,1,0,Best Scorecard,8.0,0.698,"Under FN=5, FP=1, Best Scorecard has lower observed expected cost. Use metric-level rows for significance and tradeoff details."

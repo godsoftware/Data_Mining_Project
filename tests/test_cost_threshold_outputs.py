@@ -71,7 +71,26 @@ def test_manual_review_band_results_taiwan_are_valid():
 
 
 def test_cost_threshold_figures_exist():
-    for filename in ["cost_curve_taiwan.png", "threshold_tradeoff_taiwan.png"]:
+    for filename in [
+        "cost_curve_taiwan.png",
+        "threshold_tradeoff_taiwan.png",
+        "cost_curve_heloc.png",
+        "threshold_tradeoff_heloc.png",
+        "cost_curve.png",
+        "threshold_tradeoff.png",
+    ]:
         figure = FIGURES_DIR / filename
         assert figure.exists()
         assert figure.stat().st_size > 0
+
+
+def test_threshold_analysis_contract_outputs_cover_both_datasets():
+    table = pd.read_csv(TABLES_DIR / "threshold_analysis.csv")
+    manual = pd.read_csv(TABLES_DIR / "manual_review_band_results.csv")
+
+    assert set(table["dataset"]) == {"taiwan", "heloc"}
+    assert set(manual["dataset"]) == {"taiwan", "heloc"}
+    assert not table["test_set_used"].astype(bool).any()
+    assert not manual["test_set_used"].astype(bool).any()
+    assert table.groupby(["dataset", "scenario"])["threshold"].nunique().eq(99).all()
+    assert manual.groupby(["dataset", "scenario"])["is_best_band_for_scenario"].sum().eq(1).all()

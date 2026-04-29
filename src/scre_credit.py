@@ -69,6 +69,12 @@ def _one_hot_encoder() -> OneHotEncoder:
         return OneHotEncoder(handle_unknown="ignore", sparse=False)
 
 
+def _is_lightgbm_estimator(model) -> bool:
+    """Return True when the final estimator is a LightGBM estimator."""
+
+    return model.__class__.__module__.startswith("lightgbm")
+
+
 def build_research_preprocessor(
     X: pd.DataFrame,
     categorical_columns: list[str] | None = None,
@@ -116,10 +122,11 @@ def make_model_pipeline(model, X: pd.DataFrame, categorical_columns: list[str] |
             ("model", model),
         ]
     )
-    try:
-        pipeline.set_output(transform="pandas")
-    except ValueError:
-        pass
+    if not _is_lightgbm_estimator(model):
+        try:
+            pipeline.set_output(transform="pandas")
+        except ValueError:
+            pass
     return pipeline
 
 
@@ -133,10 +140,11 @@ def make_numeric_model_pipeline(model) -> Pipeline:
             ("model", model),
         ]
     )
-    try:
-        pipeline.set_output(transform="pandas")
-    except ValueError:
-        pass
+    if not _is_lightgbm_estimator(model):
+        try:
+            pipeline.set_output(transform="pandas")
+        except ValueError:
+            pass
     return pipeline
 
 

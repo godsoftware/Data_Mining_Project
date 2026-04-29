@@ -1,0 +1,7 @@
+dataset,split_left,split_right,feature_columns_used,overlap_feature_keys,duplicate_pair_count,same_target_pair_count,different_target_pair_count,policy,risk_note
+taiwan,train,validation,40,14,16,8,8,audit_only_no_group_identifier_available,Exact feature-profile overlap is reported for transparency. No customer-stable group identifier is available after ID exclusion.
+taiwan,train,test,40,11,11,7,4,audit_only_no_group_identifier_available,Exact feature-profile overlap is reported for transparency. No customer-stable group identifier is available after ID exclusion.
+taiwan,validation,test,40,5,5,0,5,audit_only_no_group_identifier_available,Exact feature-profile overlap is reported for transparency. No customer-stable group identifier is available after ID exclusion.
+heloc,train,validation,31,1,1,1,0,audit_only_no_group_identifier_available,Exact feature-profile overlap is reported for transparency. No customer-stable group identifier is available after ID exclusion.
+heloc,train,test,31,0,0,0,0,audit_only_no_group_identifier_available,Exact feature-profile overlap is reported for transparency. No customer-stable group identifier is available after ID exclusion.
+heloc,validation,test,31,0,0,0,0,audit_only_no_group_identifier_available,Exact feature-profile overlap is reported for transparency. No customer-stable group identifier is available after ID exclusion.

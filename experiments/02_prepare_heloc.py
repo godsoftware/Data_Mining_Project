@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import argparse
 import sys
 from pathlib import Path
 
@@ -16,17 +17,39 @@ from src.config.paths import FIGURES_DIR, HELOC_CLEANED, HELOC_MODEL_READY, TABL
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Prepare FICO HELOC cleaned and model-ready data.")
+    parser.add_argument(
+        "--target-column",
+        default="RiskPerformance",
+        help="Explicit HELOC target column to map to bad_flag; no target auto-detection is performed.",
+    )
+    parser.add_argument(
+        "--special-code-strategy",
+        choices=["nan", "indicator", "category"],
+        default="nan",
+        help="How to handle HELOC negative sentinel codes after auditing them.",
+    )
+    args = parser.parse_args()
+
     run_id = start_run("prepare_heloc", dataset="heloc", tags=["phase-3", "external-data-pipeline"])
     try:
-        prepare_heloc()
+        prepare_heloc(
+            target_column=args.target_column,
+            special_code_strategy=args.special_code_strategy,
+        )
         finish_run(
             run_id,
+            metrics={
+                "target_column": args.target_column,
+                "special_code_strategy": args.special_code_strategy,
+            },
             artifacts={
                 "cleaned_data": HELOC_CLEANED,
                 "model_ready_data": HELOC_MODEL_READY,
                 "data_audit": TABLES_DIR / "heloc_data_audit.csv",
                 "data_dictionary": TABLES_DIR / "heloc_data_dictionary.csv",
                 "feature_dictionary": TABLES_DIR / "feature_dictionary_heloc.csv",
+                "cleaning_decisions": TABLES_DIR / "heloc_cleaning_decisions.csv",
                 "target_distribution": FIGURES_DIR / "heloc_target_distribution.png",
             },
         )

@@ -11,3 +11,4 @@ taiwan_id_excluded_from_model_features,pass,ID is retained only in interim data 
 heloc_original_target_removed,pass,RiskPerformance is mapped to bad_flag and removed from cleaned/model-ready HELOC tables.
 calibration_policy,pass,CV-based calibration is allowed on training data; test predictions are not used to fit calibrators.
 dataset_level_statistics_policy,pass,"Any future dataset-level statistic must be implemented as a train-fitted transformer, not precomputed on full data."
+duplicate_feature_profile_overlap_audit,pass,Exact feature-profile overlaps across splits are reported in duplicate_split_overlap_audit.csv.

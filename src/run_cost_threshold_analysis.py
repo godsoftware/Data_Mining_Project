@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import warnings
 from dataclasses import dataclass
+from pathlib import Path
 
 import matplotlib
 
@@ -16,7 +17,6 @@ from sklearn.metrics import confusion_matrix
 
 from config.settings import MANUAL_REVIEW_COST
 from data.split_leakage import stratified_train_validation_test_split
-from data_preprocessing import TARGET_COLUMN
 from evaluation import binary_classification_metrics
 from experiment_registry import finish_run, start_run
 from run_calibration_analysis import (
@@ -25,7 +25,7 @@ from run_calibration_analysis import (
     _positive_class_probability,
     build_calibration_model_specs,
 )
-from src.config.paths import FIGURES_DIR, TABLES_DIR, TAIWAN_MODEL_READY
+from src.config.paths import FIGURES_DIR, TABLES_DIR
 
 
 warnings.filterwarnings("ignore", category=UserWarning)
@@ -55,6 +55,15 @@ class ProbabilityRecord:
     brier_score: float
 
 
+@dataclass
+class DatasetDecisionResults:
+    """Phase 10 outputs for one dataset."""
+
+    threshold_table: pd.DataFrame
+    manual_review_table: pd.DataFrame
+    primary_record: ProbabilityRecord
+
+
 def _confusion_at_threshold(y_true: np.ndarray, y_proba: np.ndarray, threshold: float) -> dict[str, float | int]:
     """Compute threshold-dependent binary decision metrics without refitting anything."""
 
@@ -82,6 +91,7 @@ def _confusion_at_threshold(y_true: np.ndarray, y_proba: np.ndarray, threshold: 
 
 
 def _threshold_rows_for_record(
+    dataset: str,
     record: ProbabilityRecord,
     y_true: np.ndarray,
     train_rows: int,
@@ -97,7 +107,7 @@ def _threshold_rows_for_record(
         for metrics in base_rows:
             expected_cost = costs["fn_cost"] * metrics["fn"] + costs["fp_cost"] * metrics["fp"]
             row = {
-                "dataset": "taiwan",
+                "dataset": dataset,
                 "selection_split": "validation",
                 "test_set_used": False,
                 "train_rows": int(train_rows),
@@ -132,19 +142,20 @@ def _threshold_rows_for_record(
     return rows
 
 
-def collect_taiwan_probability_records() -> tuple[list[ProbabilityRecord], pd.Series, int, int, int]:
-    """Fit Taiwan model/calibration variants and return validation probabilities."""
+def collect_probability_records(dataset: str) -> tuple[list[ProbabilityRecord], pd.Series, int, int, int]:
+    """Fit model/calibration variants and return validation probabilities."""
 
-    df = pd.read_csv(TAIWAN_MODEL_READY)
-    split = stratified_train_validation_test_split(df, target_column=TARGET_COLUMN)
-    X_train = split.train.drop(columns=[TARGET_COLUMN])
-    y_train = split.train[TARGET_COLUMN]
-    X_validation = split.validation.drop(columns=[TARGET_COLUMN])
-    y_validation = split.validation[TARGET_COLUMN]
+    config = CALIBRATION_DATASET_CONFIGS[dataset]
+    df = pd.read_csv(config["path"])
+    target = config["target"]
+    split = stratified_train_validation_test_split(df, target_column=target)
+    X_train = split.train.drop(columns=[target])
+    y_train = split.train[target]
+    X_validation = split.validation.drop(columns=[target])
+    y_validation = split.validation[target]
 
-    config = CALIBRATION_DATASET_CONFIGS["taiwan"]
     specs = build_calibration_model_specs(
-        "taiwan",
+        dataset,
         X_train,
         categorical_columns=config["categorical_columns"],
     )
@@ -152,7 +163,7 @@ def collect_taiwan_probability_records() -> tuple[list[ProbabilityRecord], pd.Se
     records: list[ProbabilityRecord] = []
     for spec in specs:
         for calibration_method in ["uncalibrated", "sigmoid", "isotonic"]:
-            print(f"Fitting Taiwan decision probability: {spec.name} [{calibration_method}]")
+            print(f"Fitting {dataset} decision probability: {spec.name} [{calibration_method}]")
             fitted = _fit_probability_model(spec.estimator, calibration_method, X_train, y_train)
             y_proba = _positive_class_probability(fitted, X_validation)
             metrics = binary_classification_metrics(y_validation, y_proba, threshold=0.5)
@@ -173,6 +184,7 @@ def collect_taiwan_probability_records() -> tuple[list[ProbabilityRecord], pd.Se
 
 
 def build_threshold_analysis(
+    dataset: str,
     records: list[ProbabilityRecord],
     y_validation: pd.Series,
     train_rows: int,
@@ -184,15 +196,17 @@ def build_threshold_analysis(
     y_true = np.asarray(y_validation).astype(int)
     rows: list[dict] = []
     for record in records:
-        rows.extend(_threshold_rows_for_record(record, y_true, train_rows, validation_rows, test_rows))
+        rows.extend(
+            _threshold_rows_for_record(dataset, record, y_true, train_rows, validation_rows, test_rows)
+        )
 
     table = pd.DataFrame(rows)
     table["is_best_threshold_for_model_scenario"] = False
-    best_idx = table.groupby(["model", "calibration_method", "scenario"])["expected_cost"].idxmin()
+    best_idx = table.groupby(["dataset", "model", "calibration_method", "scenario"])["expected_cost"].idxmin()
     table.loc[best_idx, "is_best_threshold_for_model_scenario"] = True
     return table.sort_values(
-        ["scenario", "expected_cost", "model", "calibration_method", "threshold"],
-        ascending=[True, True, True, True, True],
+        ["dataset", "scenario", "expected_cost", "model", "calibration_method", "threshold"],
+        ascending=[True, True, True, True, True, True],
     ).reset_index(drop=True)
 
 
@@ -254,6 +268,7 @@ def manual_review_metrics(
 
 
 def build_manual_review_band_results(
+    dataset: str,
     record: ProbabilityRecord,
     y_validation: pd.Series,
     train_rows: int,
@@ -262,7 +277,7 @@ def build_manual_review_band_results(
     max_review_rate: float = 0.45,
     min_review_capture_recall: float = 0.75,
 ) -> pd.DataFrame:
-    """Search t_low/t_high bands for the selected Taiwan decision record."""
+    """Search t_low/t_high bands for the selected decision record."""
 
     y_true = np.asarray(y_validation).astype(int)
     rows: list[dict] = []
@@ -284,7 +299,7 @@ def build_manual_review_band_results(
                 meets_review_capture = metrics["review_capture_recall"] >= min_review_capture_recall
                 rows.append(
                     {
-                        "dataset": "taiwan",
+                        "dataset": dataset,
                         "selection_split": "validation",
                         "test_set_used": False,
                         "train_rows": int(train_rows),
@@ -313,18 +328,24 @@ def build_manual_review_band_results(
     feasible = table.loc[table["meets_constraints"]].copy()
     if feasible.empty:
         feasible = table.copy()
-    best_idx = feasible.groupby("scenario")["expected_policy_cost"].idxmin()
+    best_idx = feasible.groupby(["dataset", "scenario"])["expected_policy_cost"].idxmin()
     table.loc[best_idx, "is_best_band_for_scenario"] = True
     return table.sort_values(
-        ["scenario", "expected_policy_cost", "manual_review_rate", "t_low", "t_high"]
+        ["dataset", "scenario", "expected_policy_cost", "manual_review_rate", "t_low", "t_high"]
     ).reset_index(drop=True)
 
 
-def plot_cost_curve(threshold_table: pd.DataFrame, primary_record: ProbabilityRecord, output_path: Path) -> None:
+def plot_cost_curve(
+    dataset: str,
+    threshold_table: pd.DataFrame,
+    primary_record: ProbabilityRecord,
+    output_path: Path,
+) -> None:
     """Plot expected cost over thresholds for the selected primary model."""
 
     primary = threshold_table.loc[
-        (threshold_table["model"] == primary_record.model)
+        (threshold_table["dataset"] == dataset)
+        & (threshold_table["model"] == primary_record.model)
         & (threshold_table["calibration_method"] == primary_record.calibration_method)
     ].copy()
 
@@ -340,7 +361,7 @@ def plot_cost_curve(threshold_table: pd.DataFrame, primary_record: ProbabilityRe
         )
         ax.scatter([best["threshold"]], [best["expected_cost"]], s=40)
 
-    ax.set_title(f"Taiwan Cost Curve - {primary_record.model} ({primary_record.calibration_method})")
+    ax.set_title(f"{dataset.upper()} Cost Curve - {primary_record.model} ({primary_record.calibration_method})")
     ax.set_xlabel("Threshold")
     ax.set_ylabel("Expected Cost on Validation")
     ax.grid(alpha=0.25)
@@ -352,6 +373,7 @@ def plot_cost_curve(threshold_table: pd.DataFrame, primary_record: ProbabilityRe
 
 
 def plot_threshold_tradeoff(
+    dataset: str,
     threshold_table: pd.DataFrame,
     primary_record: ProbabilityRecord,
     output_path: Path,
@@ -359,7 +381,8 @@ def plot_threshold_tradeoff(
     """Plot precision/recall/F1 trade-off for the selected primary model."""
 
     primary = threshold_table.loc[
-        (threshold_table["model"] == primary_record.model)
+        (threshold_table["dataset"] == dataset)
+        & (threshold_table["model"] == primary_record.model)
         & (threshold_table["calibration_method"] == primary_record.calibration_method)
         & (threshold_table["scenario"] == "B_FN5_FP1")
     ].sort_values("threshold")
@@ -370,7 +393,8 @@ def plot_threshold_tradeoff(
     ax.plot(primary["threshold"], primary["f1"], label="F1", linewidth=2)
 
     primary_all_scenarios = threshold_table.loc[
-        (threshold_table["model"] == primary_record.model)
+        (threshold_table["dataset"] == dataset)
+        & (threshold_table["model"] == primary_record.model)
         & (threshold_table["calibration_method"] == primary_record.calibration_method)
     ]
     best_thresholds = [
@@ -381,7 +405,7 @@ def plot_threshold_tradeoff(
         ax.axvline(row["threshold"], linestyle="--", alpha=0.45)
         ax.text(row["threshold"], 0.02, row["scenario"], rotation=90, va="bottom", ha="right", fontsize=8)
 
-    ax.set_title(f"Threshold Trade-off - {primary_record.model} ({primary_record.calibration_method})")
+    ax.set_title(f"{dataset.upper()} Threshold Trade-off - {primary_record.model} ({primary_record.calibration_method})")
     ax.set_xlabel("Threshold")
     ax.set_ylabel("Metric Value")
     ax.set_ylim(0, 1.02)
@@ -393,13 +417,76 @@ def plot_threshold_tradeoff(
     plt.close(fig)
 
 
-def run_taiwan_cost_threshold_analysis() -> tuple[pd.DataFrame, pd.DataFrame]:
-    """Run Phase 10 for Taiwan and save tables/figures."""
+def plot_combined_cost_curve(threshold_table: pd.DataFrame, output_path: Path) -> None:
+    """Plot best validation cost curves for all datasets and scenarios."""
 
-    records, y_validation, train_rows, validation_rows, test_rows = collect_taiwan_probability_records()
-    threshold_table = build_threshold_analysis(records, y_validation, train_rows, validation_rows, test_rows)
+    fig, ax = plt.subplots(figsize=(9, 5.5))
+    for (dataset, scenario), scenario_df in threshold_table.groupby(["dataset", "scenario"]):
+        best = scenario_df.loc[scenario_df["expected_cost"].idxmin()]
+        curve = scenario_df.loc[
+            (scenario_df["model"] == best["model"])
+            & (scenario_df["calibration_method"] == best["calibration_method"])
+        ].sort_values("threshold")
+        ax.plot(
+            curve["threshold"],
+            curve["expected_cost"],
+            linewidth=1.8,
+            label=f"{dataset} {scenario} best t={best['threshold']:.2f}",
+        )
+        ax.scatter([best["threshold"]], [best["expected_cost"]], s=25)
+
+    ax.set_title("Cost Curve Summary")
+    ax.set_xlabel("Threshold")
+    ax.set_ylabel("Expected Cost on Validation")
+    ax.grid(alpha=0.25)
+    ax.legend(fontsize=8)
+    fig.tight_layout()
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(output_path, dpi=300, bbox_inches="tight")
+    plt.close(fig)
+
+
+def plot_combined_threshold_tradeoff(threshold_table: pd.DataFrame, output_path: Path) -> None:
+    """Plot scenario-B threshold trade-offs for each dataset's best decision model."""
+
+    fig, ax = plt.subplots(figsize=(9, 5.5))
+    linestyles = {"precision": "-", "recall": "--", "f1": ":"}
+    for dataset, dataset_df in threshold_table.groupby("dataset"):
+        scenario_df = dataset_df.loc[dataset_df["scenario"] == "B_FN5_FP1"]
+        best = scenario_df.loc[scenario_df["expected_cost"].idxmin()]
+        curve = scenario_df.loc[
+            (scenario_df["model"] == best["model"])
+            & (scenario_df["calibration_method"] == best["calibration_method"])
+        ].sort_values("threshold")
+        for metric, linestyle in linestyles.items():
+            ax.plot(
+                curve["threshold"],
+                curve[metric],
+                linestyle=linestyle,
+                linewidth=1.8,
+                label=f"{dataset} {metric}",
+            )
+
+    ax.set_title("Threshold Trade-off Summary")
+    ax.set_xlabel("Threshold")
+    ax.set_ylabel("Metric Value")
+    ax.set_ylim(0, 1.02)
+    ax.grid(alpha=0.25)
+    ax.legend(fontsize=8)
+    fig.tight_layout()
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(output_path, dpi=300, bbox_inches="tight")
+    plt.close(fig)
+
+
+def run_cost_threshold_analysis_for_dataset(dataset: str) -> DatasetDecisionResults:
+    """Run Phase 10 for one dataset and save dataset-specific tables/figures."""
+
+    records, y_validation, train_rows, validation_rows, test_rows = collect_probability_records(dataset)
+    threshold_table = build_threshold_analysis(dataset, records, y_validation, train_rows, validation_rows, test_rows)
     primary_record = select_primary_decision_record(records)
     manual_review_table = build_manual_review_band_results(
+        dataset,
         primary_record,
         y_validation,
         train_rows,
@@ -409,79 +496,128 @@ def run_taiwan_cost_threshold_analysis() -> tuple[pd.DataFrame, pd.DataFrame]:
 
     TABLES_DIR.mkdir(parents=True, exist_ok=True)
     FIGURES_DIR.mkdir(parents=True, exist_ok=True)
-    threshold_table.to_csv(TABLES_DIR / "threshold_analysis_taiwan.csv", index=False)
-    manual_review_table.to_csv(TABLES_DIR / "manual_review_band_results_taiwan.csv", index=False)
+    threshold_table.to_csv(TABLES_DIR / f"threshold_analysis_{dataset}.csv", index=False)
+    manual_review_table.to_csv(TABLES_DIR / f"manual_review_band_results_{dataset}.csv", index=False)
+    plot_cost_curve(dataset, threshold_table, primary_record, FIGURES_DIR / f"cost_curve_{dataset}.png")
+    plot_threshold_tradeoff(dataset, threshold_table, primary_record, FIGURES_DIR / f"threshold_tradeoff_{dataset}.png")
+    return DatasetDecisionResults(
+        threshold_table=threshold_table,
+        manual_review_table=manual_review_table,
+        primary_record=primary_record,
+    )
+
+
+def write_contract_outputs(results: dict[str, DatasetDecisionResults]) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Write prompt-contract aliases, combining datasets when both are present."""
+
+    threshold_table = pd.concat([result.threshold_table for result in results.values()], ignore_index=True)
+    manual_review_table = pd.concat([result.manual_review_table for result in results.values()], ignore_index=True)
     threshold_table.to_csv(TABLES_DIR / "threshold_analysis.csv", index=False)
     manual_review_table.to_csv(TABLES_DIR / "manual_review_band_results.csv", index=False)
-    plot_cost_curve(threshold_table, primary_record, FIGURES_DIR / "cost_curve_taiwan.png")
-    plot_threshold_tradeoff(threshold_table, primary_record, FIGURES_DIR / "threshold_tradeoff_taiwan.png")
-    plot_cost_curve(threshold_table, primary_record, FIGURES_DIR / "cost_curve.png")
-    plot_threshold_tradeoff(threshold_table, primary_record, FIGURES_DIR / "threshold_tradeoff.png")
+
+    if len(results) == 1:
+        dataset, result = next(iter(results.items()))
+        plot_cost_curve(dataset, threshold_table, result.primary_record, FIGURES_DIR / "cost_curve.png")
+        plot_threshold_tradeoff(dataset, threshold_table, result.primary_record, FIGURES_DIR / "threshold_tradeoff.png")
+    else:
+        plot_combined_cost_curve(threshold_table, FIGURES_DIR / "cost_curve.png")
+        plot_combined_threshold_tradeoff(threshold_table, FIGURES_DIR / "threshold_tradeoff.png")
+
     return threshold_table, manual_review_table
+
+
+def _print_best_summaries(threshold_table: pd.DataFrame, manual_review_table: pd.DataFrame) -> None:
+    """Print compact best-threshold and best-band summaries."""
+
+    best_threshold_idx = threshold_table.groupby(["dataset", "scenario"])["expected_cost"].idxmin()
+    best_thresholds = threshold_table.loc[best_threshold_idx]
+    print(
+        best_thresholds[
+            [
+                "dataset",
+                "scenario",
+                "model",
+                "calibration_method",
+                "threshold",
+                "expected_cost",
+                "cost_improvement_pct_vs_0_50",
+                "precision",
+                "recall",
+                "f1",
+            ]
+        ]
+        .sort_values(["dataset", "scenario"])
+        .to_string(index=False)
+    )
+
+    best_band_idx = manual_review_table.groupby(["dataset", "scenario"])["expected_policy_cost"].idxmin()
+    best_bands = manual_review_table.loc[best_band_idx]
+    print(
+        best_bands[
+            [
+                "dataset",
+                "scenario",
+                "model",
+                "calibration_method",
+                "t_low",
+                "t_high",
+                "expected_policy_cost",
+                "manual_review_rate",
+                "review_capture_recall",
+                "high_risk_precision",
+            ]
+        ]
+        .sort_values(["dataset", "scenario"])
+        .to_string(index=False)
+    )
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--dataset", choices=["taiwan"], default="taiwan")
+    parser.add_argument("--dataset", choices=["taiwan", "heloc", "both"], default="both")
     args = parser.parse_args()
 
+    datasets = ["taiwan", "heloc"] if args.dataset == "both" else [args.dataset]
     run_id = start_run("cost_threshold_manual_review", dataset=args.dataset, tags=["phase-10", "cost-threshold"])
     try:
-        threshold_table, manual_review_table = run_taiwan_cost_threshold_analysis()
-        best_thresholds = threshold_table.loc[threshold_table["is_best_threshold_for_model_scenario"]]
-        best_bands = manual_review_table.loc[manual_review_table["is_best_band_for_scenario"]]
-        print(
-            best_thresholds[
-                [
-                    "scenario",
-                    "model",
-                    "calibration_method",
-                    "threshold",
-                    "expected_cost",
-                    "cost_improvement_pct_vs_0_50",
-                    "precision",
-                    "recall",
-                    "f1",
-                ]
-            ]
-            .sort_values(["scenario", "expected_cost"])
-            .groupby("scenario")
-            .head(5)
-            .to_string(index=False)
-        )
-        print(
-            best_bands[
-                [
-                    "scenario",
-                    "model",
-                    "calibration_method",
-                    "t_low",
-                    "t_high",
-                    "expected_policy_cost",
-                    "manual_review_rate",
-                    "review_capture_recall",
-                    "high_risk_precision",
-                ]
-            ].to_string(index=False)
-        )
+        results = {
+            dataset: run_cost_threshold_analysis_for_dataset(dataset)
+            for dataset in datasets
+        }
+        threshold_table, manual_review_table = write_contract_outputs(results)
+        _print_best_summaries(threshold_table, manual_review_table)
+
+        best_threshold_costs = {
+            f"{dataset}_{scenario}": float(value)
+            for (dataset, scenario), value in threshold_table.groupby(["dataset", "scenario"])["expected_cost"].min().items()
+        }
+        best_manual_review_costs = {
+            f"{dataset}_{scenario}": float(value)
+            for (dataset, scenario), value in manual_review_table.groupby(["dataset", "scenario"])[
+                "expected_policy_cost"
+            ].min().items()
+        }
+        artifacts = {
+            "threshold_analysis_contract_alias": TABLES_DIR / "threshold_analysis.csv",
+            "manual_review_band_results_contract_alias": TABLES_DIR / "manual_review_band_results.csv",
+            "cost_curve_contract_alias": FIGURES_DIR / "cost_curve.png",
+            "threshold_tradeoff_contract_alias": FIGURES_DIR / "threshold_tradeoff.png",
+        }
+        for dataset in datasets:
+            artifacts[f"{dataset}_threshold_analysis"] = TABLES_DIR / f"threshold_analysis_{dataset}.csv"
+            artifacts[f"{dataset}_manual_review_band_results"] = TABLES_DIR / f"manual_review_band_results_{dataset}.csv"
+            artifacts[f"{dataset}_cost_curve"] = FIGURES_DIR / f"cost_curve_{dataset}.png"
+            artifacts[f"{dataset}_threshold_tradeoff"] = FIGURES_DIR / f"threshold_tradeoff_{dataset}.png"
+
         finish_run(
             run_id,
             metrics={
                 "threshold_rows": int(len(threshold_table)),
                 "manual_review_rows": int(len(manual_review_table)),
-                "best_threshold_costs": best_thresholds.groupby("scenario")["expected_cost"].min().to_dict(),
-                "best_manual_review_costs": best_bands.set_index("scenario")["expected_policy_cost"].to_dict(),
+                "best_threshold_costs": best_threshold_costs,
+                "best_manual_review_costs": best_manual_review_costs,
             },
-            artifacts={
-                "threshold_analysis": TABLES_DIR / "threshold_analysis_taiwan.csv",
-                "manual_review_band_results": TABLES_DIR / "manual_review_band_results_taiwan.csv",
-                "threshold_analysis_contract_alias": TABLES_DIR / "threshold_analysis.csv",
-                "manual_review_band_results_contract_alias": TABLES_DIR / "manual_review_band_results.csv",
-                "cost_curve": FIGURES_DIR / "cost_curve_taiwan.png",
-                "threshold_tradeoff": FIGURES_DIR / "threshold_tradeoff_taiwan.png",
-                "cost_curve_contract_alias": FIGURES_DIR / "cost_curve.png",
-                "threshold_tradeoff_contract_alias": FIGURES_DIR / "threshold_tradeoff.png",
-            },
+            artifacts=artifacts,
         )
     except Exception as exc:
         finish_run(run_id, status="failed", notes=str(exc))

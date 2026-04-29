@@ -276,6 +276,11 @@ def build_heloc_cleaning_decisions(
 ) -> pd.DataFrame:
     """Document the HELOC cleaning decisions applied by the pipeline."""
 
+    strategy_labels = {
+        "nan": "convert_to_missing_nan",
+        "indicator": "add_indicator_then_missing_nan",
+        "category": "keep_sentinel_as_category_value",
+    }
     rows = [
         {
             "decision": "target_column",
@@ -297,7 +302,7 @@ def build_heloc_cleaning_decisions(
         },
         {
             "decision": "special_code_strategy",
-            "setting": special_code_strategy,
+            "setting": strategy_labels.get(special_code_strategy, special_code_strategy),
             "rationale": "The default keeps missingness for train-fold imputation.",
             "output_effect": "nan converts sentinels to NaN; indicator adds flags; category keeps code values.",
         },
@@ -415,11 +420,18 @@ def heloc_quality_report(df: pd.DataFrame) -> dict[str, Any]:
     return report
 
 
-def main() -> None:
+def main(
+    target_column: str = HELOC_ORIGINAL_TARGET,
+    special_code_strategy: str = "nan",
+) -> None:
     """Create the model-ready HELOC table and quality report."""
 
     raw = load_heloc_dataset()
-    cleaned = clean_heloc_dataset(raw)
+    cleaned = clean_heloc_dataset(
+        raw,
+        target_column=target_column,
+        special_code_strategy=special_code_strategy,
+    )
     model_ready = make_heloc_model_ready_dataset(cleaned)
 
     HELOC_INTERIM_PATH.parent.mkdir(parents=True, exist_ok=True)
@@ -433,7 +445,10 @@ def main() -> None:
     build_heloc_data_audit_table(raw, cleaned).to_csv(HELOC_AUDIT_PATH, index=False)
     build_heloc_data_dictionary(raw, cleaned).to_csv(HELOC_DATA_DICTIONARY_PATH, index=False)
     build_heloc_feature_dictionary().to_csv(HELOC_FEATURE_DICTIONARY_PATH, index=False)
-    build_heloc_cleaning_decisions().to_csv(HELOC_CLEANING_DECISIONS_PATH, index=False)
+    build_heloc_cleaning_decisions(
+        target_column=target_column,
+        special_code_strategy=special_code_strategy,
+    ).to_csv(HELOC_CLEANING_DECISIONS_PATH, index=False)
     save_heloc_target_distribution_plot(cleaned, HELOC_TARGET_FIGURE_PATH)
     HELOC_QUALITY_REPORT_PATH.write_text(
         json.dumps(heloc_quality_report(cleaned), indent=2),

@@ -1,0 +1,6 @@
+dataset,model,case_type,row_id,top_k,shap_top_k_count,lime_top_k_count,overlap_count,top_k_overlap,jaccard_overlap,sign_agreement,local_explanation_consistency
+taiwan,lightgbm,borderline_manual_review,5360,10,10,10,5,"bill_volatility, delay_count, max_delay, recent_delay, utilization_proxy",0.3333333333333333,1.0,0.3333333333333333
+taiwan,lightgbm,false_negative,982,10,10,10,2,"LIMIT_BAL, total_pay_amt",0.1111111111111111,1.0,0.1111111111111111
+taiwan,lightgbm,false_positive,28747,10,10,10,7,"BILL_AMT1, PAY_0, avg_delay, bill_volatility, delay_count, payment_to_bill_ratio, recent_delay",0.5384615384615384,0.7142857142857143,0.3846153846153846
+taiwan,lightgbm,true_negative,28850,10,10,10,3,"EDUCATION, LIMIT_BAL, utilization_proxy",0.17647058823529413,1.0,0.17647058823529413
+taiwan,lightgbm,true_positive,27536,10,10,10,7,"PAY_0, avg_delay, bill_volatility, delay_count, max_delay, payment_to_bill_ratio, recent_delay",0.5384615384615384,1.0,0.5384615384615384

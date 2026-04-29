@@ -1,0 +1,7 @@
+recommendation_area,recommended_model,supporting_evidence,report_language,ready_for_report_writing
+Operational decision,Best CatBoost for Taiwan; Best Scorecard for HELOC external validation,Lowest final-test expected cost in each dataset-specific comparison.,Model choice is objective-specific and cost-sensitive.,True
+Interpretable benchmark,Best Scorecard,Most transparent model family and HELOC operational winner.,"Use as benchmark and governance-friendly comparator, not as Taiwan winner.",True
+Research framework,SCRE-Optimized,Best revised SCRE family variant by PR-AUC and reliability-aware construction.,"SCRE is a reliability-aware framework, not a universal best predictor.",True
+XAI stability claim,LightGBM SHAP stability protocol,"Computed Kendall's W top-5: Taiwan 0.8928, HELOC 1.0000.",Restrict direct stability claims to the protocol actually computed.,True
+Manual review,Best CatBoost,Lowest remaining expected cost under revised manual-review band on both datasets.,Manual review improves decision support but requires operational capacity assumptions.,True
+Claim boundary,No universal winner,"Taiwan, HELOC, cost, calibration, PR-AUC, and interpretability winners differ.",Report winners by objective; avoid dominance claims.,True
