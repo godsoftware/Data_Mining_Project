@@ -1,0 +1,6 @@
+project_version=homework_v1_scre_credit_20260429
+git_commit=not_created_git_unavailable
+git_tag=not_created_git_unavailable
+backup_path=C:\Users\AKTS\Desktop\Resul\project_backups\SCRE_Credit_homework_freeze_20260429_1627
+zip_path=C:\Users\AKTS\Desktop\Resul\Data_Mining_Project\outputs\SCRE_Credit_homework_delivery_pack_20260429.zip
+audit_path=C:\Users\AKTS\Desktop\Resul\Data_Mining_Project\outputs\homework_delivery_pack\HOMEWORK_FREEZE_AUDIT.md

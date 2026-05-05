@@ -1,0 +1,20 @@
+{
+  "dataset": "heloc",
+  "selected_policy_type": "manual_review_band",
+  "selected_model": "Best Scorecard",
+  "selected_calibration_type": "sigmoid",
+  "selected_threshold": null,
+  "selected_t_low": 0.16,
+  "selected_t_high": 0.39,
+  "selection_track": "best_manual_review_policy",
+  "selection_metric_primary": "lowest validation review_adjusted_cost with review_cost=0.5, FN=5, FP=1",
+  "selection_metric_secondary": "manual_review_rate<=0.25 preferred, then high_risk_precision, low_risk_default_rate, auto_decision_rate",
+  "selected_on": "2026-05-05 14:46:04",
+  "validation_candidate_id": "heloc__cand_0080",
+  "selection_reason": "Locked manual-review policy because corrected validation review-adjusted cost and operational workload favor Best Scorecard. Binary winner is SCRE-Optimized with validation binary cost=853.0; binary and manual-review costs are reported separately. Scorecard remains interpretable benchmark when applicable.",
+  "manual_review_cost_assumption": "review_adjusted_cost = auto_FP*fp_cost + auto_FN*fn_cost + manual_review_count*review_cost; manual decisions assumed correct for Track 2 selection",
+  "review_cost": 0.5,
+  "fn_cost": 5.0,
+  "fp_cost": 1.0,
+  "do_not_change_after_locking": true
+}

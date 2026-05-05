@@ -1,0 +1,106 @@
+system,feature,fp_vs_tp_smd,fp_vs_tn_smd,similarity_score,closer_to,interpretation
+Old Best CatBoost cost-threshold,PAY_0,0.6227747663394153,0.5483130069141695,-0.0744617594252458,TN,positive score means FP is closer to TP than TN
+Old Best CatBoost cost-threshold,PAY_2,0.506703346066631,0.3386823698791908,-0.16802097618744022,TN,positive score means FP is closer to TP than TN
+Old Best CatBoost cost-threshold,PAY_3,0.40341075649492814,0.35274781485198686,-0.05066294164294127,TN,positive score means FP is closer to TP than TN
+Old Best CatBoost cost-threshold,PAY_4,0.3873077003012019,0.27001410828381395,-0.11729359201738793,TN,positive score means FP is closer to TP than TN
+Old Best CatBoost cost-threshold,PAY_5,0.4189861626793143,0.18928471877995998,-0.22970144389935435,TN,positive score means FP is closer to TP than TN
+Old Best CatBoost cost-threshold,PAY_6,0.35870786976333785,0.1878269015448432,-0.17088096821849466,TN,positive score means FP is closer to TP than TN
+Old Best CatBoost cost-threshold,delay_count,0.6747634702165248,1.0288833548088676,0.3541198845923428,TP,positive score means FP is closer to TP than TN
+Old Best CatBoost cost-threshold,severe_delay_count,0.7005594922519353,0.8970407855726868,0.1964812933207516,TP,positive score means FP is closer to TP than TN
+Old Best CatBoost cost-threshold,max_delay,0.5514751558074861,1.2621532170304484,0.7106780612229623,TP,positive score means FP is closer to TP than TN
+Old Best CatBoost cost-threshold,avg_delay,0.6373392413164258,0.8768829761366976,0.2395437348202718,TP,positive score means FP is closer to TP than TN
+Old Best CatBoost cost-threshold,recent_delay,0.6503933138635692,0.9558983058199281,0.30550499195635883,TP,positive score means FP is closer to TP than TN
+Old Best CatBoost cost-threshold,LIMIT_BAL,0.03337410133261986,0.8043341604305806,0.7709600590979607,TP,positive score means FP is closer to TP than TN
+Old Best CatBoost cost-threshold,utilization_proxy,0.1168941445519277,0.2851030358967926,0.16820889134486489,TP,positive score means FP is closer to TP than TN
+Old Best CatBoost cost-threshold,payment_to_bill_ratio,0.04494039417924769,0.003942677039936634,-0.04099771713931105,TN,positive score means FP is closer to TP than TN
+Old Best CatBoost cost-threshold,total_bill_amt,0.15550240927374925,0.3416576094405013,0.18615520016675202,TP,positive score means FP is closer to TP than TN
+Old Best CatBoost cost-threshold,total_pay_amt,0.06887645033225183,0.48321035633571485,0.41433390600346304,TP,positive score means FP is closer to TP than TN
+Old Best CatBoost cost-threshold,AGE,0.06716472412941715,0.051911407362715475,-0.015253316766701677,TN,positive score means FP is closer to TP than TN
+Old Best CatBoost cost-threshold,SEX,0.03021687187115773,0.07554230957840621,0.045325437707248485,TP,positive score means FP is closer to TP than TN
+Old Best CatBoost cost-threshold,EDUCATION,0.005925343310935659,0.1709233450614374,0.16499800175050172,TP,positive score means FP is closer to TP than TN
+Old Best CatBoost cost-threshold,MARRIAGE,0.1470393465683773,0.0193477015902203,-0.127691644978157,TN,positive score means FP is closer to TP than TN
+Old Best CatBoost cost-threshold,__overall__,0.32911775303252266,0.4571850081179448,0.12806725508542216,TP,mean across analyzed features
+Best precision-constrained CatBoost,PAY_0,0.5855096525727531,0.7670036438591614,0.1814939912864083,TP,positive score means FP is closer to TP than TN
+Best precision-constrained CatBoost,PAY_2,0.4624238463228831,0.4833584832953601,0.020934636972476994,TP,positive score means FP is closer to TP than TN
+Best precision-constrained CatBoost,PAY_3,0.37124803887964547,0.46088985795806037,0.0896418190784149,TP,positive score means FP is closer to TP than TN
+Best precision-constrained CatBoost,PAY_4,0.36356236201143666,0.3739951990357809,0.010432837024344221,TP,positive score means FP is closer to TP than TN
+Best precision-constrained CatBoost,PAY_5,0.4229582228614769,0.27090679927799016,-0.15205142358348672,TN,positive score means FP is closer to TP than TN
+Best precision-constrained CatBoost,PAY_6,0.3661467028928923,0.2515536912730869,-0.1145930116198054,TN,positive score means FP is closer to TP than TN
+Best precision-constrained CatBoost,delay_count,0.6006061153895987,1.3465251724569005,0.7459190570673018,TP,positive score means FP is closer to TP than TN
+Best precision-constrained CatBoost,severe_delay_count,0.648318758104349,1.143404740718528,0.4950859826141789,TP,positive score means FP is closer to TP than TN
+Best precision-constrained CatBoost,max_delay,0.45346019220745093,1.6594098121993532,1.2059496199919022,TP,positive score means FP is closer to TP than TN
+Best precision-constrained CatBoost,avg_delay,0.5798876995073788,1.1139560356113496,0.5340683361039708,TP,positive score means FP is closer to TP than TN
+Best precision-constrained CatBoost,recent_delay,0.5515889022492922,1.2905615196622562,0.7389726174129639,TP,positive score means FP is closer to TP than TN
+Best precision-constrained CatBoost,LIMIT_BAL,0.05143891372511774,0.6900008101130918,0.638561896387974,TP,positive score means FP is closer to TP than TN
+Best precision-constrained CatBoost,utilization_proxy,0.15371714484748533,0.193957908436175,0.040240763588689665,TP,positive score means FP is closer to TP than TN
+Best precision-constrained CatBoost,payment_to_bill_ratio,0.054491191766613656,0.010121931953984737,-0.04436925981262892,TN,positive score means FP is closer to TP than TN
+Best precision-constrained CatBoost,total_bill_amt,0.21538204085213944,0.3269171861715244,0.11153514531938494,TP,positive score means FP is closer to TP than TN
+Best precision-constrained CatBoost,total_pay_amt,0.03022518179765825,0.4383973980020962,0.40817221620443794,TP,positive score means FP is closer to TP than TN
+Best precision-constrained CatBoost,AGE,0.05252091426317234,0.03132231795062672,-0.02119859631254562,TN,positive score means FP is closer to TP than TN
+Best precision-constrained CatBoost,SEX,0.018180786747884075,0.049559681922351544,0.03137889517446747,TP,positive score means FP is closer to TP than TN
+Best precision-constrained CatBoost,EDUCATION,0.027597696484926756,0.15207317266627562,0.12447547618134887,TP,positive score means FP is closer to TP than TN
+Best precision-constrained CatBoost,MARRIAGE,0.13567372553678114,0.015724771430200978,-0.11994895410658016,TN,positive score means FP is closer to TP than TN
+Best precision-constrained CatBoost,__overall__,0.30724690445104674,0.5534820066997077,0.24623510224866096,TP,mean across analyzed features
+Best manual-review high-risk bucket,PAY_0,0.4855784813429632,1.0897436123431017,0.6041651310001385,TP,positive score means FP is closer to TP than TN
+Best manual-review high-risk bucket,PAY_2,0.3464406267017116,0.7360170672236136,0.389576440521902,TP,positive score means FP is closer to TP than TN
+Best manual-review high-risk bucket,PAY_3,0.2933374053291642,0.6583746841520224,0.3650372788228582,TP,positive score means FP is closer to TP than TN
+Best manual-review high-risk bucket,PAY_4,0.30205781670443166,0.5492424648482364,0.2471846481438047,TP,positive score means FP is closer to TP than TN
+Best manual-review high-risk bucket,PAY_5,0.3967851162990358,0.39737198359274817,0.0005868672937123787,TP,positive score means FP is closer to TP than TN
+Best manual-review high-risk bucket,PAY_6,0.3471518802164075,0.36310188194695003,0.015950001730542507,TP,positive score means FP is closer to TP than TN
+Best manual-review high-risk bucket,delay_count,0.4606878617112331,1.6847157955662613,1.2240279338550282,TP,positive score means FP is closer to TP than TN
+Best manual-review high-risk bucket,severe_delay_count,0.5312923824894644,1.4096887485309657,0.8783963660415013,TP,positive score means FP is closer to TP than TN
+Best manual-review high-risk bucket,max_delay,0.34648861784711255,2.006883846322034,1.6603952284749215,TP,positive score means FP is closer to TP than TN
+Best manual-review high-risk bucket,avg_delay,0.4638613407361127,1.3545576250683524,0.8906962843322397,TP,positive score means FP is closer to TP than TN
+Best manual-review high-risk bucket,recent_delay,0.39008286123951885,1.7302283126006615,1.3401454513611426,TP,positive score means FP is closer to TP than TN
+Best manual-review high-risk bucket,LIMIT_BAL,0.04502737213689165,0.652334474362474,0.6073071022255824,TP,positive score means FP is closer to TP than TN
+Best manual-review high-risk bucket,utilization_proxy,0.12440408174532191,0.3057265593312493,0.1813224775859274,TP,positive score means FP is closer to TP than TN
+Best manual-review high-risk bucket,payment_to_bill_ratio,0.06358727013599262,0.012658690996696894,-0.05092857913929573,TN,positive score means FP is closer to TP than TN
+Best manual-review high-risk bucket,total_bill_amt,0.2058662026885743,0.23159987687409608,0.025733674185521777,TP,positive score means FP is closer to TP than TN
+Best manual-review high-risk bucket,total_pay_amt,0.021483028131193273,0.45583046195373106,0.43434743382253777,TP,positive score means FP is closer to TP than TN
+Best manual-review high-risk bucket,AGE,0.05008970113395494,0.032566522949349475,-0.017523178184605463,TN,positive score means FP is closer to TP than TN
+Best manual-review high-risk bucket,SEX,0.0420971260401371,0.12009539332570814,0.07799826728557104,TP,positive score means FP is closer to TP than TN
+Best manual-review high-risk bucket,EDUCATION,0.011429287610767691,0.14441187138594722,0.13298258377517952,TP,positive score means FP is closer to TP than TN
+Best manual-review high-risk bucket,MARRIAGE,0.1043985266088345,0.007524200364164384,-0.09687432624467011,TN,positive score means FP is closer to TP than TN
+Best manual-review high-risk bucket,__overall__,0.2516073493424412,0.6971337036869182,0.44552635434447696,TP,mean across analyzed features
+Best SCRE policy,PAY_0,0.4855784813429632,1.0897436123431017,0.6041651310001385,TP,positive score means FP is closer to TP than TN
+Best SCRE policy,PAY_2,0.3464406267017116,0.7360170672236136,0.389576440521902,TP,positive score means FP is closer to TP than TN
+Best SCRE policy,PAY_3,0.2933374053291642,0.6583746841520224,0.3650372788228582,TP,positive score means FP is closer to TP than TN
+Best SCRE policy,PAY_4,0.30205781670443166,0.5492424648482364,0.2471846481438047,TP,positive score means FP is closer to TP than TN
+Best SCRE policy,PAY_5,0.3967851162990358,0.39737198359274817,0.0005868672937123787,TP,positive score means FP is closer to TP than TN
+Best SCRE policy,PAY_6,0.3471518802164075,0.36310188194695003,0.015950001730542507,TP,positive score means FP is closer to TP than TN
+Best SCRE policy,delay_count,0.4606878617112331,1.6847157955662613,1.2240279338550282,TP,positive score means FP is closer to TP than TN
+Best SCRE policy,severe_delay_count,0.5312923824894644,1.4096887485309657,0.8783963660415013,TP,positive score means FP is closer to TP than TN
+Best SCRE policy,max_delay,0.34648861784711255,2.006883846322034,1.6603952284749215,TP,positive score means FP is closer to TP than TN
+Best SCRE policy,avg_delay,0.4638613407361127,1.3545576250683524,0.8906962843322397,TP,positive score means FP is closer to TP than TN
+Best SCRE policy,recent_delay,0.39008286123951885,1.7302283126006615,1.3401454513611426,TP,positive score means FP is closer to TP than TN
+Best SCRE policy,LIMIT_BAL,0.04502737213689165,0.652334474362474,0.6073071022255824,TP,positive score means FP is closer to TP than TN
+Best SCRE policy,utilization_proxy,0.12440408174532191,0.3057265593312493,0.1813224775859274,TP,positive score means FP is closer to TP than TN
+Best SCRE policy,payment_to_bill_ratio,0.06358727013599262,0.012658690996696894,-0.05092857913929573,TN,positive score means FP is closer to TP than TN
+Best SCRE policy,total_bill_amt,0.2058662026885743,0.23159987687409608,0.025733674185521777,TP,positive score means FP is closer to TP than TN
+Best SCRE policy,total_pay_amt,0.021483028131193273,0.45583046195373106,0.43434743382253777,TP,positive score means FP is closer to TP than TN
+Best SCRE policy,AGE,0.05008970113395494,0.032566522949349475,-0.017523178184605463,TN,positive score means FP is closer to TP than TN
+Best SCRE policy,SEX,0.0420971260401371,0.12009539332570814,0.07799826728557104,TP,positive score means FP is closer to TP than TN
+Best SCRE policy,EDUCATION,0.011429287610767691,0.14441187138594722,0.13298258377517952,TP,positive score means FP is closer to TP than TN
+Best SCRE policy,MARRIAGE,0.1043985266088345,0.007524200364164384,-0.09687432624467011,TN,positive score means FP is closer to TP than TN
+Best SCRE policy,__overall__,0.2516073493424412,0.6971337036869182,0.44552635434447696,TP,mean across analyzed features
+Best Scorecard policy,PAY_0,0.5646059590194942,1.0936758434660179,0.5290698844465237,TP,positive score means FP is closer to TP than TN
+Best Scorecard policy,PAY_2,0.4209371476029076,0.6630034878573436,0.24206634025443602,TP,positive score means FP is closer to TP than TN
+Best Scorecard policy,PAY_3,0.3474983841078999,0.6162039897871028,0.2687056056792029,TP,positive score means FP is closer to TP than TN
+Best Scorecard policy,PAY_4,0.3415368470120032,0.523315763188934,0.18177891617693082,TP,positive score means FP is closer to TP than TN
+Best Scorecard policy,PAY_5,0.4055105363405973,0.4202888776656298,0.014778341325032474,TP,positive score means FP is closer to TP than TN
+Best Scorecard policy,PAY_6,0.3659829470914165,0.3741133142011152,0.008130367109698722,TP,positive score means FP is closer to TP than TN
+Best Scorecard policy,delay_count,0.5479409277808646,1.705130537423253,1.1571896096423884,TP,positive score means FP is closer to TP than TN
+Best Scorecard policy,severe_delay_count,0.6120392677184832,1.3937786700058614,0.7817394022873783,TP,positive score means FP is closer to TP than TN
+Best Scorecard policy,max_delay,0.38241932500225956,2.2676093464210583,1.8851900214187987,TP,positive score means FP is closer to TP than TN
+Best Scorecard policy,avg_delay,0.535598182217768,1.3485103059590182,0.8129121237412502,TP,positive score means FP is closer to TP than TN
+Best Scorecard policy,recent_delay,0.46140610452715874,1.7123300540985025,1.2509239495713438,TP,positive score means FP is closer to TP than TN
+Best Scorecard policy,LIMIT_BAL,0.03754873505797426,0.6654873871695502,0.627938652111576,TP,positive score means FP is closer to TP than TN
+Best Scorecard policy,utilization_proxy,0.11287805928616215,0.34980593089325196,0.2369278716070898,TP,positive score means FP is closer to TP than TN
+Best Scorecard policy,payment_to_bill_ratio,0.06574256835021397,0.0223679088421714,-0.04337465950804257,TN,positive score means FP is closer to TP than TN
+Best Scorecard policy,total_bill_amt,0.2218450149765984,0.25655413917675574,0.03470912420015734,TP,positive score means FP is closer to TP than TN
+Best Scorecard policy,total_pay_amt,0.0028669840396049716,0.4592288820405587,0.4563618980009537,TP,positive score means FP is closer to TP than TN
+Best Scorecard policy,AGE,0.04745016758802649,0.02689906686430807,-0.02055110072371842,TN,positive score means FP is closer to TP than TN
+Best Scorecard policy,SEX,0.006483720928159191,0.08766213676594785,0.08117841583778866,TP,positive score means FP is closer to TP than TN
+Best Scorecard policy,EDUCATION,0.010145486112039087,0.16221283503200246,0.15206734891996337,TP,positive score means FP is closer to TP than TN
+Best Scorecard policy,MARRIAGE,0.14865419972469487,0.0327274773605798,-0.11592672236411508,TN,positive score means FP is closer to TP than TN
+Best Scorecard policy,__overall__,0.2819545282242163,0.7090452977109483,0.42709076948673197,TP,mean across analyzed features

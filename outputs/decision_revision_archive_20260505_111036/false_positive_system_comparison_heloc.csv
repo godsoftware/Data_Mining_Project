@@ -1,0 +1,6 @@
+dataset,system,model,policy_type,threshold,t_low,t_high,tp,fp,fn,tn,overall_fp_vs_tp_smd,overall_fp_vs_tn_smd,overall_similarity_score,fp_closer_to,fp_looks_risky,source
+heloc,Old Best CatBoost cost-threshold,Best CatBoost,binary_threshold,0.14,,,1008,798,20,149,0.4338962445551167,0.7034306430047318,0.2695343984496151,TP,True,current_threshold_baseline_heloc.csv
+heloc,Best precision-constrained CatBoost,Best CatBoost,binary_threshold:precision_constraint:A_min_precision_0_35,0.145,,,1002,780,26,167,0.4273013492163488,0.7200109915666333,0.29270964235028446,TP,True,eligible_model_selection_heloc.csv
+heloc,Best manual-review high-risk bucket,SCRE-Pareto,manual_review_band:L_review_0_25_low_default_0_10,,0.12,0.29,944,544,84,403,0.31297922129015426,0.7860569488915649,0.4730777276014106,TP,True,eligible_model_selection_heloc.csv
+heloc,Best SCRE policy,SCRE-Pareto,manual_review_band:L_review_0_25_low_default_0_10,,0.12,0.29,944,544,84,403,0.31297922129015426,0.7860569488915649,0.4730777276014106,TP,True,eligible_model_selection_heloc.csv
+heloc,Best Scorecard policy,Best Scorecard,manual_review_band:A_manual_review_rate_0_20,,0.16,0.29,932,526,96,421,0.30768630198496505,0.8018015892070022,0.4941152872220371,TP,True,eligible_model_selection_heloc.csv
