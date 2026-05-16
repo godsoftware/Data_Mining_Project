@@ -1,0 +1,18 @@
+{
+  "capacity_levels": [
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.25,
+    0.3,
+    0.4
+  ],
+  "review_cost_per_case": 0.5,
+  "fn_cost_saved_per_captured_default": 5.0,
+  "rows": 252,
+  "comparison_rows": 28,
+  "test_set_used_for_selection": false,
+  "deep_model_included": false,
+  "deep_model_note": "Prompt 3 did not persist reusable probability artifacts; deep models are listed as unavailable."
+}

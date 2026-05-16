@@ -1,0 +1,169 @@
+2026-05-06 10:15:25,133 | INFO | Starting strict literature reproduction for datasets=['taiwan', 'heloc']
+2026-05-06 10:15:25,135 | INFO | Loading taiwan from C:\Users\AKTS\Desktop\Resul\Data_Mining_Project\data\processed\taiwan_model_ready.csv
+2026-05-06 10:15:25,281 | INFO | taiwan split sizes: train=18000 validation=6000 test=6000 positive_rates=(0.2212, 0.2212, 0.2212)
+2026-05-06 10:15:25,282 | INFO | [taiwan] Config 1/21: GBDT + no resampling
+2026-05-06 10:15:42,763 | INFO | [taiwan] GBDT + no resampling CV PR-AUC 0.5585 ROC-AUC 0.7820
+2026-05-06 10:15:46,334 | INFO | [taiwan] GBDT + no resampling validation PR-AUC 0.5565 ROC-AUC 0.7824 ECE 0.0130
+2026-05-06 10:15:46,340 | INFO | [taiwan] Config 2/21: GBDT + RandomOverSampler
+2026-05-06 10:16:03,474 | INFO | [taiwan] GBDT + RandomOverSampler CV PR-AUC 0.5575 ROC-AUC 0.7812
+2026-05-06 10:16:07,118 | INFO | [taiwan] GBDT + RandomOverSampler validation PR-AUC 0.5604 ROC-AUC 0.7840 ECE 0.1694
+2026-05-06 10:16:07,133 | INFO | [taiwan] Config 3/21: GBDT + SMOTE
+2026-05-06 10:16:26,383 | INFO | [taiwan] GBDT + SMOTE CV PR-AUC 0.5441 ROC-AUC 0.7701
+2026-05-06 10:16:30,373 | INFO | [taiwan] GBDT + SMOTE validation PR-AUC 0.5385 ROC-AUC 0.7727 ECE 0.0821
+2026-05-06 10:16:30,388 | INFO | [taiwan] Config 4/21: GBDT + BorderlineSMOTE
+2026-05-06 10:16:50,344 | INFO | [taiwan] GBDT + BorderlineSMOTE CV PR-AUC 0.5322 ROC-AUC 0.7698
+2026-05-06 10:16:54,410 | INFO | [taiwan] GBDT + BorderlineSMOTE validation PR-AUC 0.5327 ROC-AUC 0.7735 ECE 0.0916
+2026-05-06 10:16:54,416 | INFO | [taiwan] Config 5/21: GBDT + SMOTE-Tomek
+2026-05-06 10:17:19,542 | INFO | [taiwan] GBDT + SMOTE-Tomek CV PR-AUC 0.5427 ROC-AUC 0.7700
+2026-05-06 10:17:24,140 | INFO | [taiwan] GBDT + SMOTE-Tomek validation PR-AUC 0.5377 ROC-AUC 0.7699 ECE 0.0823
+2026-05-06 10:17:24,156 | INFO | [taiwan] Config 6/21: GBDT + ADASYN
+2026-05-06 10:17:44,153 | INFO | [taiwan] GBDT + ADASYN CV PR-AUC 0.5399 ROC-AUC 0.7685
+2026-05-06 10:17:48,077 | INFO | [taiwan] GBDT + ADASYN validation PR-AUC 0.5348 ROC-AUC 0.7701 ECE 0.0945
+2026-05-06 10:17:48,093 | INFO | [taiwan] Config 7/21: GBDT + KMeansSMOTE
+2026-05-06 10:18:08,260 | INFO | [taiwan] GBDT + KMeansSMOTE CV PR-AUC 0.5519 ROC-AUC 0.7825
+2026-05-06 10:18:12,248 | INFO | [taiwan] GBDT + KMeansSMOTE validation PR-AUC 0.5525 ROC-AUC 0.7849 ECE 0.0285
+2026-05-06 10:18:12,256 | INFO | [taiwan] Config 8/21: XGBoost + no resampling
+2026-05-06 10:18:19,599 | INFO | [taiwan] XGBoost + no resampling CV PR-AUC 0.5618 ROC-AUC 0.7859
+2026-05-06 10:18:22,776 | INFO | [taiwan] XGBoost + no resampling validation PR-AUC 0.5642 ROC-AUC 0.7889 ECE 0.0052
+2026-05-06 10:18:22,792 | INFO | [taiwan] Config 9/21: XGBoost + SMOTE
+2026-05-06 10:18:32,257 | INFO | [taiwan] XGBoost + SMOTE CV PR-AUC 0.5418 ROC-AUC 0.7719
+2026-05-06 10:18:35,556 | INFO | [taiwan] XGBoost + SMOTE validation PR-AUC 0.5419 ROC-AUC 0.7674 ECE 0.1135
+2026-05-06 10:18:35,563 | INFO | [taiwan] Config 10/21: XGBoost + BorderlineSMOTE
+2026-05-06 10:18:45,567 | INFO | [taiwan] XGBoost + BorderlineSMOTE CV PR-AUC 0.5285 ROC-AUC 0.7699
+2026-05-06 10:18:48,875 | INFO | [taiwan] XGBoost + BorderlineSMOTE validation PR-AUC 0.5254 ROC-AUC 0.7667 ECE 0.1253
+2026-05-06 10:18:48,892 | INFO | [taiwan] Config 11/21: XGBoost + SMOTE-Tomek
+2026-05-06 10:19:04,241 | INFO | [taiwan] XGBoost + SMOTE-Tomek CV PR-AUC 0.5419 ROC-AUC 0.7715
+2026-05-06 10:19:08,094 | INFO | [taiwan] XGBoost + SMOTE-Tomek validation PR-AUC 0.5439 ROC-AUC 0.7694 ECE 0.1126
+2026-05-06 10:19:08,104 | INFO | [taiwan] Config 12/21: XGBoost + KMeansSMOTE
+2026-05-06 10:19:20,061 | INFO | [taiwan] XGBoost + KMeansSMOTE CV PR-AUC 0.5509 ROC-AUC 0.7839
+2026-05-06 10:19:23,399 | INFO | [taiwan] XGBoost + KMeansSMOTE validation PR-AUC 0.5546 ROC-AUC 0.7856 ECE 0.0364
+2026-05-06 10:19:23,417 | INFO | [taiwan] Config 13/21: LightGBM + no resampling
+2026-05-06 10:19:33,052 | INFO | [taiwan] LightGBM + no resampling CV PR-AUC 0.5570 ROC-AUC 0.7811
+2026-05-06 10:19:36,171 | INFO | [taiwan] LightGBM + no resampling validation PR-AUC 0.5621 ROC-AUC 0.7861 ECE 0.0150
+2026-05-06 10:19:36,183 | INFO | [taiwan] Config 14/21: LightGBM + SMOTE
+2026-05-06 10:19:49,256 | INFO | [taiwan] LightGBM + SMOTE CV PR-AUC 0.5448 ROC-AUC 0.7714
+2026-05-06 10:19:52,716 | INFO | [taiwan] LightGBM + SMOTE validation PR-AUC 0.5466 ROC-AUC 0.7742 ECE 0.0620
+2026-05-06 10:19:52,729 | INFO | [taiwan] Config 15/21: LightGBM + BorderlineSMOTE
+2026-05-06 10:20:06,445 | INFO | [taiwan] LightGBM + BorderlineSMOTE CV PR-AUC 0.5381 ROC-AUC 0.7714
+2026-05-06 10:20:10,025 | INFO | [taiwan] LightGBM + BorderlineSMOTE validation PR-AUC 0.5362 ROC-AUC 0.7757 ECE 0.0676
+2026-05-06 10:20:10,046 | INFO | [taiwan] Config 16/21: LightGBM + SMOTE-Tomek
+2026-05-06 10:20:29,056 | INFO | [taiwan] LightGBM + SMOTE-Tomek CV PR-AUC 0.5430 ROC-AUC 0.7696
+2026-05-06 10:20:33,213 | INFO | [taiwan] LightGBM + SMOTE-Tomek validation PR-AUC 0.5482 ROC-AUC 0.7751 ECE 0.0580
+2026-05-06 10:20:33,237 | INFO | [taiwan] Config 17/21: LightGBM + KMeansSMOTE
+2026-05-06 10:20:48,345 | INFO | [taiwan] LightGBM + KMeansSMOTE CV PR-AUC 0.5523 ROC-AUC 0.7824
+2026-05-06 10:20:51,980 | INFO | [taiwan] LightGBM + KMeansSMOTE validation PR-AUC 0.5541 ROC-AUC 0.7857 ECE 0.0262
+2026-05-06 10:20:51,991 | INFO | [taiwan] Config 18/21: CatBoost baseline
+2026-05-06 10:22:49,181 | INFO | [taiwan] CatBoost baseline CV PR-AUC 0.5660 ROC-AUC 0.7883
+2026-05-06 10:22:59,823 | INFO | [taiwan] CatBoost baseline validation PR-AUC 0.5593 ROC-AUC 0.7867 ECE 0.0100
+2026-05-06 10:22:59,833 | INFO | [taiwan] Config 19/21: CatBoost class_weights
+2026-05-06 10:24:59,644 | INFO | [taiwan] CatBoost class_weights CV PR-AUC 0.5635 ROC-AUC 0.7879
+2026-05-06 10:25:10,353 | INFO | [taiwan] CatBoost class_weights validation PR-AUC 0.5572 ROC-AUC 0.7857 ECE 0.1961
+2026-05-06 10:25:10,365 | INFO | [taiwan] Config 20/21: CatBoost Balanced
+2026-05-06 10:27:12,455 | INFO | [taiwan] CatBoost Balanced CV PR-AUC 0.5648 ROC-AUC 0.7884
+2026-05-06 10:27:23,388 | INFO | [taiwan] CatBoost Balanced validation PR-AUC 0.5590 ROC-AUC 0.7866 ECE 0.1977
+2026-05-06 10:27:23,408 | INFO | [taiwan] Config 21/21: CatBoost SqrtBalanced
+2026-05-06 10:29:27,118 | INFO | [taiwan] CatBoost SqrtBalanced CV PR-AUC 0.5656 ROC-AUC 0.7884
+2026-05-06 10:29:37,847 | INFO | [taiwan] CatBoost SqrtBalanced validation PR-AUC 0.5596 ROC-AUC 0.7857 ECE 0.0882
+2026-05-06 10:29:37,857 | INFO | Loading heloc from C:\Users\AKTS\Desktop\Resul\Data_Mining_Project\data\processed\heloc_model_ready.csv
+2026-05-06 10:29:37,891 | INFO | heloc split sizes: train=5922 validation=1974 test=1975 positive_rates=(0.5203, 0.5203, 0.5205)
+2026-05-06 10:29:37,892 | INFO | [heloc] Config 1/21: GBDT + no resampling
+2026-05-06 10:29:49,425 | INFO | [heloc] GBDT + no resampling CV PR-AUC 0.7857 ROC-AUC 0.7913
+2026-05-06 10:29:52,212 | INFO | [heloc] GBDT + no resampling validation PR-AUC 0.7907 ROC-AUC 0.7917 ECE 0.0365
+2026-05-06 10:29:52,226 | INFO | [heloc] Config 2/21: GBDT + RandomOverSampler
+2026-05-06 10:30:03,857 | INFO | [heloc] GBDT + RandomOverSampler CV PR-AUC 0.7857 ROC-AUC 0.7921
+2026-05-06 10:30:06,831 | INFO | [heloc] GBDT + RandomOverSampler validation PR-AUC 0.7878 ROC-AUC 0.7934 ECE 0.0367
+2026-05-06 10:30:06,842 | INFO | [heloc] Config 3/21: GBDT + SMOTE
+2026-05-06 10:30:19,693 | INFO | [heloc] GBDT + SMOTE CV PR-AUC 0.7847 ROC-AUC 0.7912
+2026-05-06 10:30:22,787 | INFO | [heloc] GBDT + SMOTE validation PR-AUC 0.7886 ROC-AUC 0.7923 ECE 0.0495
+2026-05-06 10:30:22,799 | INFO | [heloc] Config 4/21: GBDT + BorderlineSMOTE
+2026-05-06 10:30:35,822 | INFO | [heloc] GBDT + BorderlineSMOTE CV PR-AUC 0.7842 ROC-AUC 0.7902
+2026-05-06 10:30:38,677 | INFO | [heloc] GBDT + BorderlineSMOTE validation PR-AUC 0.7903 ROC-AUC 0.7920 ECE 0.0335
+2026-05-06 10:30:38,688 | INFO | [heloc] Config 5/21: GBDT + SMOTE-Tomek
+2026-05-06 10:30:51,945 | INFO | [heloc] GBDT + SMOTE-Tomek CV PR-AUC 0.7874 ROC-AUC 0.7926
+2026-05-06 10:30:54,937 | INFO | [heloc] GBDT + SMOTE-Tomek validation PR-AUC 0.7888 ROC-AUC 0.7931 ECE 0.0647
+2026-05-06 10:30:54,949 | INFO | [heloc] Config 6/21: GBDT + ADASYN
+2026-05-06 10:30:54,987 | ERROR | [heloc] CV failed for GBDT + ADASYN
+Traceback (most recent call last):
+  File "C:\Users\AKTS\Desktop\Resul\Data_Mining_Project\experiments\40_strict_literature_reproduction.py", line 886, in run_experiment
+    cv_metrics = run_cv(estimator, X_train, y_train)
+  File "C:\Users\AKTS\Desktop\Resul\Data_Mining_Project\experiments\40_strict_literature_reproduction.py", line 516, in run_cv
+    scores = cross_validate(
+  File "C:\Users\AKTS\anaconda3\envs\tf210win\lib\site-packages\sklearn\utils\_param_validation.py", line 218, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\AKTS\anaconda3\envs\tf210win\lib\site-packages\sklearn\model_selection\_validation.py", line 399, in cross_validate
+    results = parallel(
+  File "C:\Users\AKTS\anaconda3\envs\tf210win\lib\site-packages\sklearn\utils\parallel.py", line 82, in __call__
+    return super().__call__(iterable_with_config_and_warning_filters)
+  File "C:\Users\AKTS\anaconda3\envs\tf210win\lib\site-packages\joblib\parallel.py", line 1986, in __call__
+    return output if self.return_generator else list(output)
+  File "C:\Users\AKTS\anaconda3\envs\tf210win\lib\site-packages\joblib\parallel.py", line 1914, in _get_sequential_output
+    res = func(*args, **kwargs)
+  File "C:\Users\AKTS\anaconda3\envs\tf210win\lib\site-packages\sklearn\utils\parallel.py", line 147, in __call__
+    return self.function(*args, **kwargs)
+  File "C:\Users\AKTS\anaconda3\envs\tf210win\lib\site-packages\sklearn\model_selection\_validation.py", line 859, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "C:\Users\AKTS\anaconda3\envs\tf210win\lib\site-packages\sklearn\base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "C:\Users\AKTS\anaconda3\envs\tf210win\lib\site-packages\imblearn\pipeline.py", line 514, in fit
+    Xt, yt = self._fit(X, y, routed_params, raw_params=params)
+  File "C:\Users\AKTS\anaconda3\envs\tf210win\lib\site-packages\imblearn\pipeline.py", line 436, in _fit
+    X, y, fitted_transformer = fit_resample_one_cached(
+  File "C:\Users\AKTS\anaconda3\envs\tf210win\lib\site-packages\joblib\memory.py", line 326, in __call__
+    return self.func(*args, **kwargs)
+  File "C:\Users\AKTS\anaconda3\envs\tf210win\lib\site-packages\imblearn\pipeline.py", line 1332, in _fit_resample_one
+    X_res, y_res = sampler.fit_resample(X, y, **params.get("fit_resample", {}))
+  File "C:\Users\AKTS\anaconda3\envs\tf210win\lib\site-packages\imblearn\base.py", line 204, in fit_resample
+    return super().fit_resample(X, y, **params)
+  File "C:\Users\AKTS\anaconda3\envs\tf210win\lib\site-packages\sklearn\base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "C:\Users\AKTS\anaconda3\envs\tf210win\lib\site-packages\imblearn\base.py", line 107, in fit_resample
+    output = self._fit_resample(X, y, **params)
+  File "C:\Users\AKTS\anaconda3\envs\tf210win\lib\site-packages\imblearn\over_sampling\_adasyn.py", line 173, in _fit_resample
+    raise ValueError(
+ValueError: No samples will be generated with the provided ratio settings.
+2026-05-06 10:30:55,010 | INFO | [heloc] Config 7/21: GBDT + KMeansSMOTE
+2026-05-06 10:31:10,155 | INFO | [heloc] GBDT + KMeansSMOTE CV PR-AUC 0.7838 ROC-AUC 0.7914
+2026-05-06 10:31:13,216 | INFO | [heloc] GBDT + KMeansSMOTE validation PR-AUC 0.7926 ROC-AUC 0.7926 ECE 0.0373
+2026-05-06 10:31:13,228 | INFO | [heloc] Config 8/21: XGBoost + no resampling
+2026-05-06 10:31:17,264 | INFO | [heloc] XGBoost + no resampling CV PR-AUC 0.7926 ROC-AUC 0.7987
+2026-05-06 10:31:19,610 | INFO | [heloc] XGBoost + no resampling validation PR-AUC 0.7941 ROC-AUC 0.7990 ECE 0.0290
+2026-05-06 10:31:19,628 | INFO | [heloc] Config 9/21: XGBoost + SMOTE
+2026-05-06 10:31:24,445 | INFO | [heloc] XGBoost + SMOTE CV PR-AUC 0.7945 ROC-AUC 0.7994
+2026-05-06 10:31:26,758 | INFO | [heloc] XGBoost + SMOTE validation PR-AUC 0.7945 ROC-AUC 0.7993 ECE 0.0292
+2026-05-06 10:31:26,784 | INFO | [heloc] Config 10/21: XGBoost + BorderlineSMOTE
+2026-05-06 10:31:31,676 | INFO | [heloc] XGBoost + BorderlineSMOTE CV PR-AUC 0.7934 ROC-AUC 0.7986
+2026-05-06 10:31:33,947 | INFO | [heloc] XGBoost + BorderlineSMOTE validation PR-AUC 0.7932 ROC-AUC 0.7980 ECE 0.0268
+2026-05-06 10:31:33,963 | INFO | [heloc] Config 11/21: XGBoost + SMOTE-Tomek
+2026-05-06 10:31:39,208 | INFO | [heloc] XGBoost + SMOTE-Tomek CV PR-AUC 0.7941 ROC-AUC 0.7992
+2026-05-06 10:31:41,585 | INFO | [heloc] XGBoost + SMOTE-Tomek validation PR-AUC 0.7953 ROC-AUC 0.8002 ECE 0.0453
+2026-05-06 10:31:41,610 | INFO | [heloc] Config 12/21: XGBoost + KMeansSMOTE
+2026-05-06 10:31:48,173 | INFO | [heloc] XGBoost + KMeansSMOTE CV PR-AUC 0.7944 ROC-AUC 0.7994
+2026-05-06 10:31:50,738 | INFO | [heloc] XGBoost + KMeansSMOTE validation PR-AUC 0.7949 ROC-AUC 0.7988 ECE 0.0314
+2026-05-06 10:31:50,751 | INFO | [heloc] Config 13/21: LightGBM + no resampling
+2026-05-06 10:31:56,709 | INFO | [heloc] LightGBM + no resampling CV PR-AUC 0.7859 ROC-AUC 0.7903
+2026-05-06 10:31:59,263 | INFO | [heloc] LightGBM + no resampling validation PR-AUC 0.7917 ROC-AUC 0.7945 ECE 0.0389
+2026-05-06 10:31:59,284 | INFO | [heloc] Config 14/21: LightGBM + SMOTE
+2026-05-06 10:32:06,978 | INFO | [heloc] LightGBM + SMOTE CV PR-AUC 0.7878 ROC-AUC 0.7918
+2026-05-06 10:32:09,509 | INFO | [heloc] LightGBM + SMOTE validation PR-AUC 0.7885 ROC-AUC 0.7916 ECE 0.0382
+2026-05-06 10:32:09,529 | INFO | [heloc] Config 15/21: LightGBM + BorderlineSMOTE
+2026-05-06 10:32:17,129 | INFO | [heloc] LightGBM + BorderlineSMOTE CV PR-AUC 0.7864 ROC-AUC 0.7906
+2026-05-06 10:32:19,818 | INFO | [heloc] LightGBM + BorderlineSMOTE validation PR-AUC 0.7871 ROC-AUC 0.7902 ECE 0.0376
+2026-05-06 10:32:19,832 | INFO | [heloc] Config 16/21: LightGBM + SMOTE-Tomek
+2026-05-06 10:32:28,039 | INFO | [heloc] LightGBM + SMOTE-Tomek CV PR-AUC 0.7901 ROC-AUC 0.7928
+2026-05-06 10:32:30,714 | INFO | [heloc] LightGBM + SMOTE-Tomek validation PR-AUC 0.7881 ROC-AUC 0.7925 ECE 0.0673
+2026-05-06 10:32:30,730 | INFO | [heloc] Config 17/21: LightGBM + KMeansSMOTE
+2026-05-06 10:32:39,995 | INFO | [heloc] LightGBM + KMeansSMOTE CV PR-AUC 0.7863 ROC-AUC 0.7913
+2026-05-06 10:32:42,700 | INFO | [heloc] LightGBM + KMeansSMOTE validation PR-AUC 0.7889 ROC-AUC 0.7918 ECE 0.0432
+2026-05-06 10:32:42,719 | INFO | [heloc] Config 18/21: CatBoost baseline
+2026-05-06 10:34:01,010 | INFO | [heloc] CatBoost baseline CV PR-AUC 0.7934 ROC-AUC 0.8012
+2026-05-06 10:34:08,478 | INFO | [heloc] CatBoost baseline validation PR-AUC 0.7954 ROC-AUC 0.8022 ECE 0.0149
+2026-05-06 10:34:08,493 | INFO | [heloc] Config 19/21: CatBoost class_weights
+2026-05-06 10:35:26,582 | INFO | [heloc] CatBoost class_weights CV PR-AUC 0.7938 ROC-AUC 0.8004
+2026-05-06 10:35:33,612 | INFO | [heloc] CatBoost class_weights validation PR-AUC 0.7966 ROC-AUC 0.8027 ECE 0.1967
+2026-05-06 10:35:33,632 | INFO | [heloc] Config 20/21: CatBoost Balanced
+2026-05-06 10:36:48,125 | INFO | [heloc] CatBoost Balanced CV PR-AUC 0.7937 ROC-AUC 0.8009
+2026-05-06 10:36:55,195 | INFO | [heloc] CatBoost Balanced validation PR-AUC 0.7993 ROC-AUC 0.8033 ECE 0.0265
+2026-05-06 10:36:55,221 | INFO | [heloc] Config 21/21: CatBoost SqrtBalanced
+2026-05-06 10:38:08,864 | INFO | [heloc] CatBoost SqrtBalanced CV PR-AUC 0.7928 ROC-AUC 0.8011
+2026-05-06 10:38:15,937 | INFO | [heloc] CatBoost SqrtBalanced validation PR-AUC 0.7968 ROC-AUC 0.8025 ECE 0.0234
+2026-05-06 10:38:16,097 | INFO | Strict literature reproduction complete. Outputs: C:\Users\AKTS\Desktop\Resul\Data_Mining_Project\outputs\final_attempt\literature_reproduction

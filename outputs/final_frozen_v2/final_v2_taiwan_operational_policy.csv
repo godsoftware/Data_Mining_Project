@@ -1,0 +1,2 @@
+dataset,final_policy,model,policy_type,precision,recall,specificity,fp,fn,cost,manual_review_rate,audit_status,safe_category,interpretation
+taiwan,V2 CatBoost manual-review,CatBoost,manual_review_band,0.529,0.575,0.854,680,564,2705.5,0.295,READY,FINAL MAIN EVIDENCE,"Final V2 Taiwan operational policy. Use as main report evidence. This is a manual-review screening policy, not automatic rejection."

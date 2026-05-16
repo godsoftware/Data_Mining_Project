@@ -1,0 +1,70 @@
+2026-05-06 11:11:00,525 | INFO | Starting deep tabular reproduction for ['taiwan', 'heloc']
+2026-05-06 11:11:02,984 | INFO | Loading taiwan
+2026-05-06 11:11:03,150 | INFO | taiwan split sizes: model_train=12600 early_stop=2700 calibration=2700 validation=6000 test=6000
+2026-05-06 11:11:03,150 | INFO | [taiwan] Config 1/32: mlp_64_relu_base
+2026-05-06 11:11:30,592 | INFO | [taiwan] Config 2/32: mlp_128_relu_base
+2026-05-06 11:11:49,199 | INFO | [taiwan] Config 3/32: mlp_128-64_relu_base
+2026-05-06 11:12:08,969 | INFO | [taiwan] Config 4/32: mlp_256-128_relu_base
+2026-05-06 11:12:23,333 | INFO | [taiwan] Config 5/32: mlp_256-128-64_relu_base
+2026-05-06 11:12:41,741 | INFO | [taiwan] Config 6/32: mlp_128-64-32_relu_base
+2026-05-06 11:13:06,774 | INFO | [taiwan] Config 7/32: mlp_128-64_relu_activation
+2026-05-06 11:13:26,963 | INFO | [taiwan] Config 8/32: mlp_128-64_elu_activation
+2026-05-06 11:13:53,433 | INFO | [taiwan] Config 9/32: mlp_128-64_dropout_0_0
+2026-05-06 11:14:06,618 | INFO | [taiwan] Config 10/32: mlp_128-64_dropout_0_1
+2026-05-06 11:14:31,443 | INFO | [taiwan] Config 11/32: mlp_128-64_dropout_0_2
+2026-05-06 11:14:54,466 | INFO | [taiwan] Config 12/32: mlp_128-64_dropout_0_3
+2026-05-06 11:15:18,866 | INFO | [taiwan] Config 13/32: mlp_128m64_l2_0
+2026-05-06 11:15:38,402 | INFO | [taiwan] Config 14/32: mlp_128m64_l2_1em05
+2026-05-06 11:16:02,786 | INFO | [taiwan] Config 15/32: mlp_128m64_l2_0.0001
+2026-05-06 11:16:22,372 | INFO | [taiwan] Config 16/32: mlp_128m64_l2_0.001
+2026-05-06 11:16:45,890 | INFO | [taiwan] Config 17/32: mlp_128m64_lr_0.0001_batch_128
+2026-05-06 11:17:26,358 | INFO | [taiwan] Config 18/32: mlp_128m64_lr_0.0001_batch_256
+2026-05-06 11:17:50,384 | INFO | [taiwan] Config 19/32: mlp_128m64_lr_0.0001_batch_512
+2026-05-06 11:18:15,059 | INFO | [taiwan] Config 20/32: mlp_128m64_lr_0.0003_batch_128
+2026-05-06 11:18:40,743 | INFO | [taiwan] Config 21/32: mlp_128m64_lr_0.0003_batch_256
+2026-05-06 11:18:58,966 | INFO | [taiwan] Config 22/32: mlp_128m64_lr_0.0003_batch_512
+2026-05-06 11:19:17,344 | INFO | [taiwan] Config 23/32: mlp_128m64_lr_0.001_batch_128
+2026-05-06 11:19:42,557 | INFO | [taiwan] Config 24/32: mlp_128m64_lr_0.001_batch_256
+2026-05-06 11:19:59,143 | INFO | [taiwan] Config 25/32: mlp_128m64_lr_0.001_batch_512
+2026-05-06 11:20:10,995 | INFO | [taiwan] Config 26/32: mlp_128-64_none
+2026-05-06 11:20:27,488 | INFO | [taiwan] Config 27/32: mlp_128-64_class_weight_balanced
+2026-05-06 11:20:52,612 | INFO | [taiwan] Config 28/32: mlp_128-64_focal_loss_experimental
+2026-05-06 11:21:15,958 | INFO | [taiwan] Config 29/32: mlp_128-64_kmeans_smote_train_only
+2026-05-06 11:21:36,022 | INFO | [taiwan] Config 30/32: mlp_128-64_smote_tomek_train_only
+2026-05-06 11:21:54,894 | INFO | [taiwan] Config 31/32: mlp_256-128-64_focal_dropout_0_2
+2026-05-06 11:22:14,213 | INFO | [taiwan] Config 32/32: mlp_256-128_smote_tomek
+2026-05-06 11:22:30,873 | INFO | Loading heloc
+2026-05-06 11:22:30,921 | INFO | heloc split sizes: model_train=4145 early_stop=888 calibration=889 validation=1974 test=1975
+2026-05-06 11:22:30,922 | INFO | [heloc] Config 1/32: mlp_64_relu_base
+2026-05-06 11:22:43,879 | INFO | [heloc] Config 2/32: mlp_128_relu_base
+2026-05-06 11:22:53,549 | INFO | [heloc] Config 3/32: mlp_128-64_relu_base
+2026-05-06 11:23:02,338 | INFO | [heloc] Config 4/32: mlp_256-128_relu_base
+2026-05-06 11:23:09,900 | INFO | [heloc] Config 5/32: mlp_256-128-64_relu_base
+2026-05-06 11:23:17,558 | INFO | [heloc] Config 6/32: mlp_128-64-32_relu_base
+2026-05-06 11:23:28,592 | INFO | [heloc] Config 7/32: mlp_128-64_relu_activation
+2026-05-06 11:23:38,254 | INFO | [heloc] Config 8/32: mlp_128-64_elu_activation
+2026-05-06 11:23:48,927 | INFO | [heloc] Config 9/32: mlp_128-64_dropout_0_0
+2026-05-06 11:23:56,331 | INFO | [heloc] Config 10/32: mlp_128-64_dropout_0_1
+2026-05-06 11:24:04,311 | INFO | [heloc] Config 11/32: mlp_128-64_dropout_0_2
+2026-05-06 11:24:15,041 | INFO | [heloc] Config 12/32: mlp_128-64_dropout_0_3
+2026-05-06 11:24:23,092 | INFO | [heloc] Config 13/32: mlp_128m64_l2_0
+2026-05-06 11:24:31,350 | INFO | [heloc] Config 14/32: mlp_128m64_l2_1em05
+2026-05-06 11:24:40,580 | INFO | [heloc] Config 15/32: mlp_128m64_l2_0.0001
+2026-05-06 11:24:47,814 | INFO | [heloc] Config 16/32: mlp_128m64_l2_0.001
+2026-05-06 11:24:57,654 | INFO | [heloc] Config 17/32: mlp_128m64_lr_0.0001_batch_128
+2026-05-06 11:25:07,071 | INFO | [heloc] Config 18/32: mlp_128m64_lr_0.0001_batch_256
+2026-05-06 11:25:16,359 | INFO | [heloc] Config 19/32: mlp_128m64_lr_0.0001_batch_512
+2026-05-06 11:25:27,718 | INFO | [heloc] Config 20/32: mlp_128m64_lr_0.0003_batch_128
+2026-05-06 11:25:35,931 | INFO | [heloc] Config 21/32: mlp_128m64_lr_0.0003_batch_256
+2026-05-06 11:25:43,797 | INFO | [heloc] Config 22/32: mlp_128m64_lr_0.0003_batch_512
+2026-05-06 11:25:51,388 | INFO | [heloc] Config 23/32: mlp_128m64_lr_0.001_batch_128
+2026-05-06 11:25:59,500 | INFO | [heloc] Config 24/32: mlp_128m64_lr_0.001_batch_256
+2026-05-06 11:26:07,278 | INFO | [heloc] Config 25/32: mlp_128m64_lr_0.001_batch_512
+2026-05-06 11:26:14,442 | INFO | [heloc] Config 26/32: mlp_128-64_none
+2026-05-06 11:26:23,672 | INFO | [heloc] Config 27/32: mlp_128-64_class_weight_balanced
+2026-05-06 11:26:33,155 | INFO | [heloc] Config 28/32: mlp_128-64_focal_loss_experimental
+2026-05-06 11:26:43,588 | INFO | [heloc] Config 29/32: mlp_128-64_kmeans_smote_train_only
+2026-05-06 11:26:51,711 | INFO | [heloc] Config 30/32: mlp_128-64_smote_tomek_train_only
+2026-05-06 11:27:02,694 | INFO | [heloc] Config 31/32: mlp_256-128-64_focal_dropout_0_2
+2026-05-06 11:27:11,395 | INFO | [heloc] Config 32/32: mlp_256-128_smote_tomek
+2026-05-06 11:27:18,972 | INFO | Deep tabular reproduction complete. Outputs: C:\Users\AKTS\Desktop\Resul\Data_Mining_Project\outputs\final_attempt\deep_tabular

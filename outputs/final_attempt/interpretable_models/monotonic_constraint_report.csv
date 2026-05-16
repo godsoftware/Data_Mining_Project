@@ -1,0 +1,285 @@
+dataset,model_family,config_name,feature,constraint,constraint_direction,reason
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,LIMIT_BAL,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,SEX,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,EDUCATION,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,MARRIAGE,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,AGE,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,PAY_0,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,PAY_2,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,PAY_3,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,PAY_4,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,PAY_5,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,PAY_6,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,BILL_AMT1,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,BILL_AMT2,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,BILL_AMT3,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,BILL_AMT4,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,BILL_AMT5,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,BILL_AMT6,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,PAY_AMT1,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,PAY_AMT2,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,PAY_AMT3,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,PAY_AMT4,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,PAY_AMT5,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,PAY_AMT6,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,delay_count,1,increasing_risk,Prompt-defined governance constraint
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,max_delay,1,increasing_risk,Prompt-defined governance constraint
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,avg_delay,1,increasing_risk,Prompt-defined governance constraint
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,recent_delay,1,increasing_risk,Prompt-defined governance constraint
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,severe_delay_count,1,increasing_risk,Prompt-defined governance constraint
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,total_bill_amt,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,avg_bill_amt,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,max_bill_amt,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,bill_trend,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,total_pay_amt,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,avg_pay_amt,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,max_pay_amt,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,payment_to_bill_ratio,-1,decreasing_risk,Prompt-defined governance constraint
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,utilization_proxy,1,increasing_risk,Prompt-defined governance constraint
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,recent_payment_intensity,-1,decreasing_risk,Prompt-defined governance constraint
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,bill_volatility,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_base,payment_volatility,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,LIMIT_BAL,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,SEX,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,EDUCATION,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,MARRIAGE,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,AGE,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,PAY_0,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,PAY_2,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,PAY_3,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,PAY_4,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,PAY_5,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,PAY_6,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,BILL_AMT1,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,BILL_AMT2,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,BILL_AMT3,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,BILL_AMT4,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,BILL_AMT5,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,BILL_AMT6,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,PAY_AMT1,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,PAY_AMT2,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,PAY_AMT3,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,PAY_AMT4,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,PAY_AMT5,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,PAY_AMT6,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,delay_count,1,increasing_risk,Prompt-defined governance constraint
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,max_delay,1,increasing_risk,Prompt-defined governance constraint
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,avg_delay,1,increasing_risk,Prompt-defined governance constraint
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,recent_delay,1,increasing_risk,Prompt-defined governance constraint
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,severe_delay_count,1,increasing_risk,Prompt-defined governance constraint
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,total_bill_amt,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,avg_bill_amt,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,max_bill_amt,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,bill_trend,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,total_pay_amt,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,avg_pay_amt,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,max_pay_amt,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,payment_to_bill_ratio,-1,decreasing_risk,Prompt-defined governance constraint
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,utilization_proxy,1,increasing_risk,Prompt-defined governance constraint
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,recent_payment_intensity,-1,decreasing_risk,Prompt-defined governance constraint
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,bill_volatility,0,none,No reliable monotonic prior
+taiwan,Monotonic XGBoost,monotonic_xgboost_conservative,payment_volatility,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,LIMIT_BAL,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,SEX,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,EDUCATION,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,MARRIAGE,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,AGE,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,PAY_0,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,PAY_2,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,PAY_3,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,PAY_4,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,PAY_5,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,PAY_6,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,BILL_AMT1,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,BILL_AMT2,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,BILL_AMT3,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,BILL_AMT4,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,BILL_AMT5,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,BILL_AMT6,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,PAY_AMT1,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,PAY_AMT2,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,PAY_AMT3,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,PAY_AMT4,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,PAY_AMT5,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,PAY_AMT6,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,delay_count,1,increasing_risk,Prompt-defined governance constraint
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,max_delay,1,increasing_risk,Prompt-defined governance constraint
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,avg_delay,1,increasing_risk,Prompt-defined governance constraint
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,recent_delay,1,increasing_risk,Prompt-defined governance constraint
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,severe_delay_count,1,increasing_risk,Prompt-defined governance constraint
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,total_bill_amt,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,avg_bill_amt,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,max_bill_amt,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,bill_trend,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,total_pay_amt,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,avg_pay_amt,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,max_pay_amt,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,payment_to_bill_ratio,-1,decreasing_risk,Prompt-defined governance constraint
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,utilization_proxy,1,increasing_risk,Prompt-defined governance constraint
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,recent_payment_intensity,-1,decreasing_risk,Prompt-defined governance constraint
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,bill_volatility,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_base,payment_volatility,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,LIMIT_BAL,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,SEX,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,EDUCATION,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,MARRIAGE,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,AGE,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,PAY_0,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,PAY_2,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,PAY_3,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,PAY_4,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,PAY_5,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,PAY_6,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,BILL_AMT1,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,BILL_AMT2,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,BILL_AMT3,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,BILL_AMT4,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,BILL_AMT5,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,BILL_AMT6,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,PAY_AMT1,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,PAY_AMT2,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,PAY_AMT3,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,PAY_AMT4,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,PAY_AMT5,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,PAY_AMT6,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,delay_count,1,increasing_risk,Prompt-defined governance constraint
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,max_delay,1,increasing_risk,Prompt-defined governance constraint
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,avg_delay,1,increasing_risk,Prompt-defined governance constraint
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,recent_delay,1,increasing_risk,Prompt-defined governance constraint
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,severe_delay_count,1,increasing_risk,Prompt-defined governance constraint
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,total_bill_amt,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,avg_bill_amt,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,max_bill_amt,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,bill_trend,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,total_pay_amt,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,avg_pay_amt,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,max_pay_amt,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,payment_to_bill_ratio,-1,decreasing_risk,Prompt-defined governance constraint
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,utilization_proxy,1,increasing_risk,Prompt-defined governance constraint
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,recent_payment_intensity,-1,decreasing_risk,Prompt-defined governance constraint
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,bill_volatility,0,none,No reliable monotonic prior
+taiwan,Monotonic LightGBM,monotonic_lightgbm_conservative,payment_volatility,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_base,ExternalRiskEstimate,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_base,MSinceOldestTradeOpen,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_base,MSinceMostRecentTradeOpen,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_base,AverageMInFile,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_base,NumSatisfactoryTrades,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_base,NumTrades60Ever2DerogPubRec,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_base,NumTrades90Ever2DerogPubRec,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_base,PercentTradesNeverDelq,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_base,MSinceMostRecentDelq,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_base,MaxDelq2PublicRecLast12M,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_base,MaxDelqEver,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_base,NumTotalTrades,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_base,NumTradesOpeninLast12M,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_base,PercentInstallTrades,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_base,MSinceMostRecentInqexcl7days,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_base,NumInqLast6M,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_base,NumInqLast6Mexcl7days,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_base,NetFractionRevolvingBurden,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_base,NetFractionInstallBurden,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_base,NumRevolvingTradesWBalance,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_base,NumInstallTradesWBalance,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_base,NumBank2NatlTradesWHighUtilization,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_base,PercentTradesWBalance,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_base,delinquency_intensity,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_base,trade_activity_ratio,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_base,recent_inquiry_pressure,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_base,revolving_burden_proxy,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_base,installment_burden_proxy,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_base,credit_history_length_proxy,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_base,negative_trade_signal,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_base,high_utilization_signal,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_conservative,ExternalRiskEstimate,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_conservative,MSinceOldestTradeOpen,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_conservative,MSinceMostRecentTradeOpen,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_conservative,AverageMInFile,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_conservative,NumSatisfactoryTrades,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_conservative,NumTrades60Ever2DerogPubRec,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_conservative,NumTrades90Ever2DerogPubRec,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_conservative,PercentTradesNeverDelq,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_conservative,MSinceMostRecentDelq,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_conservative,MaxDelq2PublicRecLast12M,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_conservative,MaxDelqEver,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_conservative,NumTotalTrades,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_conservative,NumTradesOpeninLast12M,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_conservative,PercentInstallTrades,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_conservative,MSinceMostRecentInqexcl7days,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_conservative,NumInqLast6M,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_conservative,NumInqLast6Mexcl7days,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_conservative,NetFractionRevolvingBurden,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_conservative,NetFractionInstallBurden,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_conservative,NumRevolvingTradesWBalance,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_conservative,NumInstallTradesWBalance,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_conservative,NumBank2NatlTradesWHighUtilization,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_conservative,PercentTradesWBalance,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_conservative,delinquency_intensity,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_conservative,trade_activity_ratio,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_conservative,recent_inquiry_pressure,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_conservative,revolving_burden_proxy,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_conservative,installment_burden_proxy,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_conservative,credit_history_length_proxy,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_conservative,negative_trade_signal,0,none,No reliable monotonic prior
+heloc,Monotonic XGBoost,monotonic_xgboost_conservative,high_utilization_signal,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_base,ExternalRiskEstimate,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_base,MSinceOldestTradeOpen,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_base,MSinceMostRecentTradeOpen,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_base,AverageMInFile,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_base,NumSatisfactoryTrades,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_base,NumTrades60Ever2DerogPubRec,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_base,NumTrades90Ever2DerogPubRec,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_base,PercentTradesNeverDelq,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_base,MSinceMostRecentDelq,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_base,MaxDelq2PublicRecLast12M,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_base,MaxDelqEver,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_base,NumTotalTrades,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_base,NumTradesOpeninLast12M,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_base,PercentInstallTrades,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_base,MSinceMostRecentInqexcl7days,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_base,NumInqLast6M,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_base,NumInqLast6Mexcl7days,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_base,NetFractionRevolvingBurden,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_base,NetFractionInstallBurden,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_base,NumRevolvingTradesWBalance,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_base,NumInstallTradesWBalance,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_base,NumBank2NatlTradesWHighUtilization,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_base,PercentTradesWBalance,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_base,delinquency_intensity,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_base,trade_activity_ratio,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_base,recent_inquiry_pressure,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_base,revolving_burden_proxy,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_base,installment_burden_proxy,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_base,credit_history_length_proxy,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_base,negative_trade_signal,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_base,high_utilization_signal,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_conservative,ExternalRiskEstimate,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_conservative,MSinceOldestTradeOpen,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_conservative,MSinceMostRecentTradeOpen,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_conservative,AverageMInFile,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_conservative,NumSatisfactoryTrades,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_conservative,NumTrades60Ever2DerogPubRec,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_conservative,NumTrades90Ever2DerogPubRec,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_conservative,PercentTradesNeverDelq,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_conservative,MSinceMostRecentDelq,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_conservative,MaxDelq2PublicRecLast12M,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_conservative,MaxDelqEver,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_conservative,NumTotalTrades,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_conservative,NumTradesOpeninLast12M,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_conservative,PercentInstallTrades,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_conservative,MSinceMostRecentInqexcl7days,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_conservative,NumInqLast6M,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_conservative,NumInqLast6Mexcl7days,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_conservative,NetFractionRevolvingBurden,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_conservative,NetFractionInstallBurden,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_conservative,NumRevolvingTradesWBalance,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_conservative,NumInstallTradesWBalance,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_conservative,NumBank2NatlTradesWHighUtilization,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_conservative,PercentTradesWBalance,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_conservative,delinquency_intensity,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_conservative,trade_activity_ratio,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_conservative,recent_inquiry_pressure,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_conservative,revolving_burden_proxy,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_conservative,installment_burden_proxy,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_conservative,credit_history_length_proxy,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_conservative,negative_trade_signal,0,none,No reliable monotonic prior
+heloc,Monotonic LightGBM,monotonic_lightgbm_conservative,high_utilization_signal,0,none,No reliable monotonic prior

@@ -1,0 +1,15 @@
+{
+  "datasets": [
+    "taiwan",
+    "heloc"
+  ],
+  "coverage_grid_configs": 32,
+  "validation_rows": 768,
+  "test_rows_reported": 6,
+  "test_set_used_for_selection": false,
+  "resampling_scope": "model_train_only",
+  "calibration_fit_split": "calibration_val_from_train_only",
+  "early_stopping_split": "early_stop_val_from_train_only",
+  "policy_selection_split": "validation",
+  "full_cartesian_grid_run": false
+}
