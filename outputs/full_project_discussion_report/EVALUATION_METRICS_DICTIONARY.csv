@@ -1,0 +1,22 @@
+metric_name,formula,ne_anlama_gelir,bu_projede_neden_kullanildi,hangi_durumda_yaniltici_olabilir,hangi_final_karar_icin_kullanildi
+Accuracy,(TP+TN)/(TP+FP+FN+TN),Genel doğru sınıflama oranı.,İlk bakış için var; imbalance altında ana karar değildir.,Default azsa yüksek accuracy yanıltabilir.,Final seçimde tek başına kullanılmadı.
+Precision,TP/(TP+FP),Riskli denilenlerin gerçekten default olma oranı.,False positive baskısını ölçmek için kritik.,Recall çok düşerse tek başına iyi görünür.,Operational/manual-review trade-off.
+Recall,TP/(TP+FN),Defaultların ne kadarını yakaladığımız.,Kredi riskinde kaçırılan default maliyetlidir.,Çok düşük threshold recall artırıp FP patlatabilir.,Taiwan weakness-closing ana hedeflerinden biri.
+Specificity,TN/(TN+FP),Non-defaultları doğru ayırma oranı.,İyi müşterileri yanlış alarmdan korur.,Recall ile trade-off yapabilir.,HELOC weakness-closing hedefi.
+F1,2PR/(P+R),Precision ve recall harmonik ortalaması.,Denge metriği.,Cost veya calibration'ı yansıtmaz.,Secondary metric.
+ROC-AUC,TPR-FPR eğrisi alanı,Threshold bağımsız ayrım gücü.,Genel discrimination için.,Imbalanced datada PR-AUC kadar hassas olmayabilir.,Raw classifier track.
+PR-AUC,Precision-Recall eğrisi alanı,Minority/default sınıf performansı.,Imbalanced default problemi için değerli.,Threshold/policy costunu direkt göstermez.,Raw classifier comparison.
+Brier,mean((p-y)^2),Probability reliability hata ölçüsü.,Calibration için.,AUC iyi olsa bile Brier kötü olabilir.,Calibration track.
+ECE,bin bazlı beklenen calibration error,Tahmin olasılıklarının güvenilirliği.,Calibrated risk scores için.,Bin seçimine duyarlı.,Calibration and audit.
+Cost,FN_cost*FN + FP_cost*FP,Yanlış karar maliyeti.,Cost-sensitive policy için.,Cost varsayımına bağımlı.,Threshold/cost analysis.
+Review-adjusted cost,auto_FP*FP_cost + auto_FN*FN_cost + MR_count*review_cost,Manual-review iş yükünü içeren maliyet.,Manual-review policy için binary costtan daha adil.,Review cost varsayımsal.,V2 policy evidence.
+Manual review rate,MR_count/N,İnsana giden oran.,Operasyonel kapasiteyi ölçer.,Düşük MR default kaçırabilir.,V2 and capacity.
+High-risk precision,high_default/high_risk_count,High-risk bucket kalitesi.,Manual-review 3x2 metrik.,Binary precision ile karıştırılmamalı.,Manual-review analysis.
+High-risk recall,high_default/total_defaults,High-risk bucket default yakalama.,Manual-review 3x2 metrik.,MR bucket defaultları dahil edilmeyebilir.,Manual-review analysis.
+Low-risk default rate,low_default/low_risk_count,Low-risk bucket leakage.,Otomatik düşük risk karar güvenliği.,Low-risk çok küçükse oynak olur.,Manual-review analysis.
+Capture@K,reviewed_defaults/total_defaults,Top-K review'da yakalanan default oranı.,Capacity-aware review için.,Direct classification değil.,SCRE/top-k appendix.
+Precision@K,reviewed_defaults/review_count,İncelenen K%'de default yoğunluğu.,Banka review kapasitesi için.,Capacity seçimine bağlı.,Capacity analysis.
+Lift@K,precision@K/base_default_rate,Random review'a göre kazanç.,Top-K ranking faydası.,Base rate'e bağlı.,Capacity analysis.
+Net benefit,TP/N - FP/N*pt/(1-pt),Treat-all/none karşısında karar faydası.,Decision curve için.,Threshold probability varsayımına bağlı.,Supporting decision evidence.
+Kendall's W,rank agreement coefficient,SHAP ranking stability.,Explanation reliability için.,Model/seed sayısına bağlı.,XAI stability appendix.
+Faithfulness score,Perturb/delete/insert behavior consistency,Explanationların model davranışıyla uyumu.,XAI sanity check.,Causal proof değildir.,Appendix.

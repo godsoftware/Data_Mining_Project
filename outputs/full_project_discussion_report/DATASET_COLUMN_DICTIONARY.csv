@@ -1,0 +1,50 @@
+dataset,column_name,type,meaning,raw_used,cleaned_used,engineered_from_it,used_in_model,used_in_cost_analysis,used_in_explainability,used_in_segment_analysis,excluded_reason,notes,used_in_scorecard,used_in_specificity_experiment
+taiwan,ID,int64,Müşteri satır kimliği. Model feature olarak kullanılmamalıdır.,True,True,False,False,False,False,False,ID excluded from model,Target-free source column; cleaning/feature use documented.,,
+taiwan,LIMIT_BAL,int64,Verilen kredi limiti / kredi kartı limiti.,True,True,True,True,True,True,True,,Target-free source column; cleaning/feature use documented.,,
+taiwan,SEX,int64,Cinsiyet kodu. Demografik değişkendir; fairness açısından dikkatli yorumlanır.,True,True,False,True,False,True,False,,Target-free source column; cleaning/feature use documented.,,
+taiwan,EDUCATION,int64,Eğitim seviyesi. 0/5/6 anomalileri 4=Other altında birleştirilmiştir.,True,True,False,True,False,True,False,,Target-free source column; cleaning/feature use documented.,,
+taiwan,MARRIAGE,int64,Medeni durum. 0 anomalisi 3=Other altında birleştirilmiştir.,True,True,False,True,False,True,False,,Target-free source column; cleaning/feature use documented.,,
+taiwan,AGE,int64,Yaş.,True,True,False,True,False,True,False,,Target-free source column; cleaning/feature use documented.,,
+taiwan,PAY_0,int64,En güncel ödeme durumu / gecikme kodu.,True,True,True,True,False,True,True,,Target-free source column; cleaning/feature use documented.,,
+taiwan,PAY_2,int64,İki dönem önceki ödeme durumu / gecikme kodu.,True,True,True,True,False,True,True,,Target-free source column; cleaning/feature use documented.,,
+taiwan,PAY_3,int64,Üç dönem önceki ödeme durumu / gecikme kodu.,True,True,True,True,False,True,True,,Target-free source column; cleaning/feature use documented.,,
+taiwan,PAY_4,int64,Dört dönem önceki ödeme durumu / gecikme kodu.,True,True,True,True,False,True,True,,Target-free source column; cleaning/feature use documented.,,
+taiwan,PAY_5,int64,Beş dönem önceki ödeme durumu / gecikme kodu.,True,True,True,True,False,True,True,,Target-free source column; cleaning/feature use documented.,,
+taiwan,PAY_6,int64,Altı dönem önceki ödeme durumu / gecikme kodu.,True,True,True,True,False,True,True,,Target-free source column; cleaning/feature use documented.,,
+taiwan,BILL_AMT1,int64,En güncel fatura/borç tutarı.,True,True,True,True,True,True,False,,Target-free source column; cleaning/feature use documented.,,
+taiwan,BILL_AMT2,int64,İki dönem önceki fatura/borç tutarı.,True,True,True,True,True,True,False,,Target-free source column; cleaning/feature use documented.,,
+taiwan,BILL_AMT3,int64,Üç dönem önceki fatura/borç tutarı.,True,True,True,True,True,True,False,,Target-free source column; cleaning/feature use documented.,,
+taiwan,BILL_AMT4,int64,Dört dönem önceki fatura/borç tutarı.,True,True,True,True,True,True,False,,Target-free source column; cleaning/feature use documented.,,
+taiwan,BILL_AMT5,int64,Beş dönem önceki fatura/borç tutarı.,True,True,True,True,True,True,False,,Target-free source column; cleaning/feature use documented.,,
+taiwan,BILL_AMT6,int64,Altı dönem önceki fatura/borç tutarı.,True,True,True,True,True,True,False,,Target-free source column; cleaning/feature use documented.,,
+taiwan,PAY_AMT1,int64,En güncel ödeme tutarı.,True,True,True,True,True,True,True,,Target-free source column; cleaning/feature use documented.,,
+taiwan,PAY_AMT2,int64,İki dönem önceki ödeme tutarı.,True,True,True,True,True,True,True,,Target-free source column; cleaning/feature use documented.,,
+taiwan,PAY_AMT3,int64,Üç dönem önceki ödeme tutarı.,True,True,True,True,True,True,True,,Target-free source column; cleaning/feature use documented.,,
+taiwan,PAY_AMT4,int64,Dört dönem önceki ödeme tutarı.,True,True,True,True,True,True,True,,Target-free source column; cleaning/feature use documented.,,
+taiwan,PAY_AMT5,int64,Beş dönem önceki ödeme tutarı.,True,True,True,True,True,True,True,,Target-free source column; cleaning/feature use documented.,,
+taiwan,PAY_AMT6,int64,Altı dönem önceki ödeme tutarı.,True,True,True,True,True,True,True,,Target-free source column; cleaning/feature use documented.,,
+taiwan,default_next_month,int64,"Temizlenmiş hedef değişken; 1=gelecek ay default, 0=non-default.",True,True,False,False,False,False,False,target; never used as feature,Only target; not a feature.,,
+heloc,ExternalRiskEstimate,float64,Dış kredi bürosu risk skoru.,True,True,False,True,True,True,True,,Special missing codes converted to NaN and imputed inside model pipelines.,True,True
+heloc,MSinceOldestTradeOpen,float64,En eski hesabın açılışından bu yana geçen ay.,True,True,True,True,False,True,False,,Special missing codes converted to NaN and imputed inside model pipelines.,True,True
+heloc,MSinceMostRecentTradeOpen,float64,En yeni hesabın açılışından bu yana geçen ay.,True,True,False,True,False,True,False,,Special missing codes converted to NaN and imputed inside model pipelines.,True,True
+heloc,AverageMInFile,float64,Dosyadaki hesapların ortalama ay yaşı.,True,True,True,True,True,True,False,,Special missing codes converted to NaN and imputed inside model pipelines.,True,True
+heloc,NumSatisfactoryTrades,float64,Tatmin edici hesap sayısı.,True,True,False,True,False,True,False,,Special missing codes converted to NaN and imputed inside model pipelines.,True,True
+heloc,NumTrades60Ever2DerogPubRec,float64,60+ gün gecikmeli veya derogatory public record sayısı.,True,True,True,True,False,True,False,,Special missing codes converted to NaN and imputed inside model pipelines.,True,True
+heloc,NumTrades90Ever2DerogPubRec,float64,90+ gün gecikmeli veya derogatory public record sayısı.,True,True,True,True,False,True,False,,Special missing codes converted to NaN and imputed inside model pipelines.,True,True
+heloc,PercentTradesNeverDelq,float64,Hiç gecikmemiş hesap yüzdesi.,True,True,True,True,True,True,True,,Special missing codes converted to NaN and imputed inside model pipelines.,True,True
+heloc,MSinceMostRecentDelq,float64,Son gecikmeden bu yana geçen ay.,True,True,False,True,False,True,False,,Special missing codes converted to NaN and imputed inside model pipelines.,True,True
+heloc,MaxDelq2PublicRecLast12M,int64,Son 12 aydaki maksimum gecikme/public record şiddeti.,True,True,False,True,False,True,False,,Special missing codes converted to NaN and imputed inside model pipelines.,True,True
+heloc,MaxDelqEver,int64,Tüm tarihteki maksimum gecikme şiddeti.,True,True,False,True,False,True,False,,Special missing codes converted to NaN and imputed inside model pipelines.,True,True
+heloc,NumTotalTrades,float64,Toplam hesap/trade sayısı.,True,True,True,True,False,True,False,,Special missing codes converted to NaN and imputed inside model pipelines.,True,True
+heloc,NumTradesOpeninLast12M,float64,Son 12 ayda açılan hesap sayısı.,True,True,True,True,False,True,False,,Special missing codes converted to NaN and imputed inside model pipelines.,True,True
+heloc,PercentInstallTrades,float64,Taksitli hesapların yüzdesi.,True,True,False,True,False,True,False,,Special missing codes converted to NaN and imputed inside model pipelines.,True,True
+heloc,MSinceMostRecentInqexcl7days,float64,Son sorgudan bu yana ay; son 7 gün hariç.,True,True,True,True,False,True,False,,Special missing codes converted to NaN and imputed inside model pipelines.,True,True
+heloc,NumInqLast6M,float64,Son 6 ay sorgu sayısı.,True,True,False,True,False,True,False,,Special missing codes converted to NaN and imputed inside model pipelines.,True,True
+heloc,NumInqLast6Mexcl7days,float64,Son 6 ay sorgu sayısı; son 7 gün hariç.,True,True,True,True,False,True,False,,Special missing codes converted to NaN and imputed inside model pipelines.,True,True
+heloc,NetFractionRevolvingBurden,float64,Revolving kredi yükü oranı.,True,True,True,True,True,True,True,,Special missing codes converted to NaN and imputed inside model pipelines.,True,True
+heloc,NetFractionInstallBurden,float64,Taksitli kredi yükü oranı.,True,True,True,True,False,True,False,,Special missing codes converted to NaN and imputed inside model pipelines.,True,True
+heloc,NumRevolvingTradesWBalance,float64,Bakiyesi olan revolving hesap sayısı.,True,True,False,True,False,True,False,,Special missing codes converted to NaN and imputed inside model pipelines.,True,True
+heloc,NumInstallTradesWBalance,float64,Bakiyesi olan taksitli hesap sayısı.,True,True,False,True,False,True,False,,Special missing codes converted to NaN and imputed inside model pipelines.,True,True
+heloc,NumBank2NatlTradesWHighUtilization,float64,Yüksek kullanım oranına sahip banka/national hesap sayısı.,True,True,True,True,False,True,False,,Special missing codes converted to NaN and imputed inside model pipelines.,True,True
+heloc,PercentTradesWBalance,float64,Bakiyesi olan hesapların yüzdesi.,True,True,False,True,False,True,False,,Special missing codes converted to NaN and imputed inside model pipelines.,True,True
+heloc,bad_flag,int64,"Temizlenmiş hedef; 1=Bad, 0=Good.",True,True,False,False,False,False,False,target; never used as feature,Positive class = Bad.,False,False

@@ -1,0 +1,27 @@
+{
+  "selected_final_version": "V2",
+  "v3_created": "PARTIAL_CANDIDATES_ONLY_NOT_FINAL",
+  "taiwan_final_policy": "V2 CatBoost manual-review",
+  "heloc_final_policy": "V2 Scorecard manual-review",
+  "taiwan_v3_candidates": [
+    "Taiwan recall-constrained CatBoost manual-review",
+    "Segment-aware workload-reducing policies",
+    "SCRE-Optimized Top-K review prioritization"
+  ],
+  "heloc_v3_candidates": [
+    "HELOC specificity-focused Scorecard threshold",
+    "HELOC revolving-burden segment policy",
+    "SCRE-Optimized Top-K review prioritization"
+  ],
+  "why_v2_remains_final": [
+    "V2 is audit READY and frozen as final operational evidence.",
+    "No weakness-closing candidate is audit-ready as a replacement.",
+    "Taiwan recall candidate improves recall but reduces precision/specificity and needs audit.",
+    "HELOC specificity candidate improves specificity but cost increases substantially.",
+    "SCRE is stronger as review-prioritization framework, not final classifier.",
+    "Temporal validation remains limitation-only because no real timestamps exist."
+  ],
+  "automatic_rejection_claim_allowed": false,
+  "scre_dominant_classifier_claim_allowed": false,
+  "ready_for_final_audit": true
+}

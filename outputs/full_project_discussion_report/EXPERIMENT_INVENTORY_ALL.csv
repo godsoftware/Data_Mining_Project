@@ -1,0 +1,11 @@
+experiment,area,what_was_done,why_done,result,evidence_file
+Prompt 0-12,Scope/data/pipeline/baselines/calibration/threshold,Taiwan+HELOC core pipeline kurulumu,Ana deney altyapısı,PASS/PARTIAL across audits,Core Tables
+SCRE Original,SCRE-Credit ensemble,Reliability-aware ensemble formülü,Framework fikrini test etmek,Dominant classifier olmadı; framework olarak kaldı,outputs/tables/scre_credit_results_*.csv
+SCRE Revision,SCRE-Pareto / SCRE-Optimized,Zayıf modelleri dışlama ve validation ağırlık optimizasyonu,SCRE seyreltme problemini azaltmak,Bazı PR-AUC/ranking avantajları; operational cost winner değil,outputs/tables/scre_revision_global_comparison.csv
+Decision Revision V1,FP reduction experiments,"Precision constraints, cost matrix, manual review, error analysis",Agresif threshold FP sorununu anlamak,NOT READY due to test-ranking ambiguity,outputs/decision_revision/final_decision_revision_audit.md
+Decision Revision V2,Validation-only selector,"Validation registry, locked policies, held-out test evidence",Test-ranking metodoloji sorununu düzeltmek,READY; final operational evidence,outputs/decision_revision_v2/final_audit_v2.md
+Final Frozen V2,Final package lock,V2 CatBoost Taiwan / Scorecard HELOC donduruldu,Ana rapor kanıtını kilitlemek,FINAL MAIN EVIDENCE,outputs/final_frozen_v2/
+Final Attempt,Large robustness package,"Literature reproduction, imbalance, DNN, EBM, capacity, DCA",Son büyük yöntem denemesi,BLOCKED; appendix only,outputs/final_attempt/audit/final_attempt_audit.md
+Weakness Closing,V2 zayıflık kapatma,"Recall, capacity, specificity, cost, instance cost, segment, temporal",V2 zayıflıklarını audit-clean denemek,READY but no V3 final replacement,outputs/final_weakness_closing/audit/final_weakness_closing_audit.md
+Explainability,SHAP/LIME/stability/faithfulness,"Global/local explanation, stability, faithfulness",Model davranışını incelemek,Appendix/supporting evidence,outputs/tables/shap_*.csv; outputs/tables/faithfulness_*.csv
+Statistical testing,Bootstrap/McNemar/AUC comparison,Model farklarını belirsizlikle raporlamak,Overclaim riskini azaltmak,Supporting evidence,outputs/tables/statistical_tests_cleaned.csv

@@ -1,0 +1,23 @@
+dataset,check,status,value,notes
+taiwan,shape,PASS,30000 rows x 25 cols,data/interim/taiwan_cleaned.csv
+taiwan,missing_total,PASS,0,HELOC missing values are expected after special-code handling.
+taiwan,duplicate_rows,PASS,0,Reported; not automatically dropped.
+taiwan,target_distribution,PASS,0:23364 (0.779); 1:6636 (0.221),Class imbalance documented.
+taiwan,education_values,PASS,"[1, 2, 3, 4]","0,5,6 mapped to 4 in cleaning."
+taiwan,marriage_values,PASS,"[1, 2, 3]",0 mapped to 3 in cleaning.
+taiwan,negative_bill_amounts,REVIEW,"{""BILL_AMT1"": 590, ""BILL_AMT2"": 669, ""BILL_AMT3"": 655, ""BILL_AMT4"": 675, ""BILL_AMT5"": 655, ""BILL_AMT6"": 688}",Negative bill amounts can represent credit balances; preserved.
+taiwan_model_ready,shape,PASS,30000 rows x 41 cols,data/processed/taiwan_model_ready.csv
+taiwan_model_ready,missing_total,PASS,0,HELOC missing values are expected after special-code handling.
+taiwan_model_ready,duplicate_rows,REVIEW,35,Reported; not automatically dropped.
+taiwan_model_ready,target_distribution,PASS,0:23364 (0.779); 1:6636 (0.221),Class imbalance documented.
+taiwan_model_ready,education_values,PASS,"[1, 2, 3, 4]","0,5,6 mapped to 4 in cleaning."
+taiwan_model_ready,marriage_values,PASS,"[1, 2, 3]",0 mapped to 3 in cleaning.
+taiwan_model_ready,negative_bill_amounts,REVIEW,"{""BILL_AMT1"": 590, ""BILL_AMT2"": 669, ""BILL_AMT3"": 655, ""BILL_AMT4"": 675, ""BILL_AMT5"": 655, ""BILL_AMT6"": 688}",Negative bill amounts can represent credit balances; preserved.
+heloc,shape,PASS,9871 rows x 24 cols,data/interim/heloc_cleaned.csv
+heloc,missing_total,REVIEW,12643,HELOC missing values are expected after special-code handling.
+heloc,duplicate_rows,REVIEW,1,Reported; not automatically dropped.
+heloc,target_distribution,PASS,0:4735 (0.480); 1:5136 (0.520),Class imbalance documented.
+heloc_model_ready,shape,PASS,9871 rows x 32 cols,data/processed/heloc_model_ready.csv
+heloc_model_ready,missing_total,REVIEW,18759,HELOC missing values are expected after special-code handling.
+heloc_model_ready,duplicate_rows,REVIEW,1,Reported; not automatically dropped.
+heloc_model_ready,target_distribution,PASS,0:4735 (0.480); 1:5136 (0.520),Class imbalance documented.
