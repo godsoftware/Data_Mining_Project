@@ -1,6 +1,0 @@
-decision,setting,rationale,output_effect
-target_column,RiskPerformance,Target is supplied explicitly instead of inferred automatically.,RiskPerformance is mapped to bad_flag with Bad=1 and Good=0.
-drop_original_target,true,Avoid duplicate target leakage after binary mapping.,RiskPerformance is removed from cleaned and model-ready features.
-special_missing_codes,"-9, -8, -7",FICO HELOC negative sentinel codes encode semantic missingness.,Codes are audited before cleaning.
-special_code_strategy,convert_to_missing_nan,The default keeps missingness for train-fold imputation.,nan converts sentinels to NaN; indicator adds flags; category keeps code values.
-duplicate_rows,report_only,Duplicates are data-quality evidence and are not dropped without a dataset-specific rule.,Duplicate count is written to heloc_data_audit.csv.

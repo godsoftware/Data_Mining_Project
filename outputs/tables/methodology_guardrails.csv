@@ -1,6 +1,0 @@
-check,status,winner,evidence
-test_set_not_used_for_model_selection,PASS,methodology,max test_set_used flag=False
-threshold_selected_on_validation,PASS,methodology,All final comparison rows use threshold_source=validation_cost_min_B_FN5_FP1.
-scre_optimized_weights_validation_only,PASS,methodology,SCRE-Optimized weight rows have test_set_used_for_weight_optimization=False.
-statistical_tests_directional_winners,PASS,methodology,Clean statistical table rows=64 with winner and metric_direction columns.
-test_rows_invalid_for_selection,PASS,methodology,Rows with split=test are marked valid_for_model_selection=False.

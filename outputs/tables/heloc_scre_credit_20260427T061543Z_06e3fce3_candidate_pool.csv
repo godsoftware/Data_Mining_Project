@@ -1,7 +1,0 @@
-model
-M1_logistic_regression
-M2_woe_scorecard_logistic
-M3_xgboost
-M4_lightgbm
-M5_monotonic_lightgbm
-M5_monotonic_xgboost

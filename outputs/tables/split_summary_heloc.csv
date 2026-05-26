@@ -1,4 +1,0 @@
-dataset,split,rows,row_fraction,target_0_count,target_1_count,target_1_rate,target_column,random_seed,split_policy,stratified
-heloc,train,5922,0.5999392158849154,2841,3081,0.5202634245187436,bad_flag,42,0.60/0.20/0.20,True
-heloc,validation,1974,0.19997973862830515,947,1027,0.5202634245187436,bad_flag,42,0.60/0.20/0.20,True
-heloc,test,1975,0.20008104548677946,947,1028,0.520506329113924,bad_flag,42,0.60/0.20/0.20,True

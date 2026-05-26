@@ -1,9 +1,0 @@
-dataset,stability_scope,model_family,feature,raw_feature,mean_rank,median_rank,rank_std,min_rank,max_rank,top5_count,top5_frequency,top10_count,top10_frequency,mean_abs_shap
-heloc,external_reduced,lightgbm,revolving_burden_proxy,revolving_burden_proxy,1.0,1.0,0.0,1,1,50,1.0,50,1.0,0.5832398755251064
-heloc,external_reduced,lightgbm,delinquency_intensity,delinquency_intensity,2.0,2.0,0.0,2,2,50,1.0,50,1.0,0.5255481775986715
-heloc,external_reduced,lightgbm,credit_history_length_proxy,credit_history_length_proxy,3.0,3.0,0.0,3,3,50,1.0,50,1.0,0.3653942603051805
-heloc,external_reduced,lightgbm,recent_inquiry_pressure,recent_inquiry_pressure,4.0,4.0,0.0,4,4,50,1.0,50,1.0,0.21612878465231022
-heloc,external_reduced,lightgbm,trade_activity_ratio,trade_activity_ratio,5.0,5.0,0.0,5,5,50,1.0,50,1.0,0.14776044937454302
-heloc,external_reduced,lightgbm,high_utilization_signal,high_utilization_signal,6.12,6.0,0.32496153618543844,6,7,0,0.0,50,1.0,0.12193043170759481
-heloc,external_reduced,lightgbm,installment_burden_proxy,installment_burden_proxy,6.88,7.0,0.32496153618543844,6,7,0,0.0,50,1.0,0.11617480327370665
-heloc,external_reduced,lightgbm,negative_trade_signal,negative_trade_signal,8.0,8.0,0.0,8,8,0,0.0,50,1.0,0.05972679436660992

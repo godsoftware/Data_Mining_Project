@@ -1,5 +1,0 @@
-audit_file,stage,verdict,critical_count,high_count,medium_count,ready_for_report,test_leakage_detected,test_ranking_detected,metric_consistency_failures,main_blocker,safe_to_use,notes
-outputs/decision_revision_v2/final_audit_v2.md,V2,READY,0,0,0,True,False,False,False,,True,V2 can support final main evidence.
-outputs/final_attempt/audit/final_attempt_audit.md,Final Attempt,BLOCKED,9,4,0,False,False,False,True,"Blocking issue: several final locked-test manual-review rows do not satisfy the requested confusion-matrix metric identities. In those rows, `test_precision` may match TP/(TP+FP), but `test_recall`, `test_specificity`, or `test_f1` use a different manual-review denominator than the displayed `test_tn/test_fp/test_fn/test_tp` columns.",True,"Final Attempt explains why that stage is appendix/diagnostic, not final."
-outputs/final_revision_audit.md,Original SCRE,UNKNOWN,0,0,0,False,False,False,False,,False,
-outputs/decision_revision/final_decision_revision_audit.md,Decision Revision V1,NOT READY,0,0,0,False,False,False,False,,False,

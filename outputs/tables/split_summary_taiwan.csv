@@ -1,4 +1,0 @@
-dataset,split,rows,row_fraction,target_0_count,target_1_count,target_1_rate,target_column,random_seed,split_policy,stratified
-taiwan,train,18000,0.6,14018,3982,0.2212222222222222,default_next_month,42,0.60/0.20/0.20,True
-taiwan,validation,6000,0.2,4673,1327,0.22116666666666668,default_next_month,42,0.60/0.20/0.20,True
-taiwan,test,6000,0.2,4673,1327,0.22116666666666668,default_next_month,42,0.60/0.20/0.20,True

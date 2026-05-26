@@ -1,6 +1,0 @@
-dataset,system,model,policy_type,threshold,t_low,t_high,tp,fp,fn,tn,overall_fp_vs_tp_smd,overall_fp_vs_tn_smd,overall_similarity_score,fp_closer_to,fp_looks_risky,source
-taiwan,Old Best CatBoost cost-threshold,Best CatBoost,binary_threshold,0.15,,,1074,1982,253,2691,0.32911775303252266,0.4571850081179448,0.12806725508542216,TP,True,current_threshold_baseline_taiwan.csv
-taiwan,Best precision-constrained CatBoost,Best CatBoost,binary_threshold:precision_constraint:B_min_precision_0_40,0.18,,,913,1273,414,3400,0.30724690445104674,0.5534820066997077,0.24623510224866096,TP,True,eligible_model_selection_taiwan.csv
-taiwan,Best manual-review high-risk bucket,SCRE-Optimized,manual_review_band:I_high_risk_recall_0_60,,0.03,0.24,811,827,516,3846,0.2516073493424412,0.6971337036869182,0.44552635434447696,TP,True,eligible_model_selection_taiwan.csv
-taiwan,Best SCRE policy,SCRE-Optimized,manual_review_band:I_high_risk_recall_0_60,,0.03,0.24,811,827,516,3846,0.2516073493424412,0.6971337036869182,0.44552635434447696,TP,True,eligible_model_selection_taiwan.csv
-taiwan,Best Scorecard policy,Best Scorecard,manual_review_band:I_high_risk_recall_0_60,,0.03,0.24,814,948,513,3725,0.2819545282242163,0.7090452977109483,0.42709076948673197,TP,True,eligible_model_selection_taiwan.csv
